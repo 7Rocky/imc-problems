@@ -1,0 +1,95 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $n$ un entero positivo. Calcula el número de palabras $w$ (sucesiones finitas de letras) que satisfacen las siguientes tres propiedades:
+
+    \begin{enumerate}
+      \item $w$ tiene $n$ letras, todas del abecedario $\{\mathtt{a}, \mathtt{b}, \mathtt{c}, \mathtt{d}\}$.
+      \item $w$ tiene un número par de letras $\mathtt{a}$.
+      \item $w$ tiene un número par de letras $\mathtt{b}$.
+    \end{enumerate}
+
+    (Por ejemplo, para $n = 2$, hay seis palabras de este estilo: $\mathtt{aa}$, $\mathtt{bb}$, $\mathtt{cc}$, $\mathtt{dd}$, $\mathtt{cd}$ y $\mathtt{dc}$)
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  En primer lugar, es fácil ver que el número de palabras que se pueden formar con el abecedario $\{\mathtt{a}, \mathtt{b}, \mathtt{c}, \mathtt{d}\}$ en función de $n$ es de $4^n$. Se definen los siguientes conjuntos:
+
+  \begin{itemize}
+    \item $A_n$: Conjunto de palabras con un número par de letras $\mathtt{a}$ y $\mathtt{b}$.
+    \item $B_n$: Conjunto de palabras con un número impar de letras $\mathtt{a}$ y $\mathtt{b}$.
+    \item $C_n$: Conjunto de palabras con un número par de letras $\mathtt{a}$ e impar de letras $\mathtt{b}$.
+    \item $D_n$: Conjunto de palabras con un número impar de letras $\mathtt{a}$ y par de letras $\mathtt{b}$.
+  \end{itemize}
+
+  Como estos conjuntos son disjuntos, obviamente, se sabe que
+  $$
+  |A_n| + |B_n| + |C_n| + |D_n| = 4^n
+  $$
+
+  Por otro lado, se sabe que a partir del conjunto $A_n$, si a cada palabra del conjunto se le quita la última letra y esta es $\mathtt{c}$ o $\mathtt{d}$, las palabras resultantes serán del conjunto $A_{n - 1}$. Si la última letra es una $\mathtt{a}$, las palabras resultantes serán del conjunto $D_{n - 1}$. Y si fuera una $\mathtt{b}$, las palabras pertenecerán a $C_{n - 1}$. Por tanto:
+  $$
+  |A_n| = 2 |A_{n - 1}| + |C_{n - 1}| + |D_{n - 1}|
+  $$
+
+  Se puede ver que existe una biyección entre los conjuntos $C_n$ y $D_n$, que consiste en cambiar todas las letras $\mathtt{a}$ por $\mathtt{b}$ y viceversa, de manera que $|C_n| = |D_n|$. Entonces
+  $$
+  |A_n| = 2 |A_{n - 1}| + |C_{n - 1}| + |D_{n - 1}| = 2 |A_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  Siguiendo con la misma estrategia, si a cada palabra del conjunto $B_n$ se le quita la última letra, si esta es una $\mathtt{a}$, la palabra resultante sería del conjunto $C_{n - 1}$; si es una $\mathtt{b}$, la palabra sería del conjunto $D_{n - 1}$, y si es una $\mathtt{c}$ o una $\mathtt{d}$, la palabra sería del conjunto $B_{n - 1}$, de manera que
+  $$
+  |B_n| = 2 |B_{n - 1}| + |C_{n - 1}| + |D_{n - 1}| = 2 |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  Si a las palabras del conjunto $C_n$ les quitamos la última letra, si esta es una letra $\mathtt{a}$, la palabra resultante será del conjunto $B_{n - 1}$; si es una $\mathtt{b}$, la palabra será de $A_{n - 1}$; y si es una $\mathtt{c}$ o una $\mathtt{d}$, la palabra será de $C_{n - 1}$, de forma que
+  $$
+  |C_n| = |A_{n - 1}| + |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  Resumiendo, se tienen las siguientes relaciones:
+  $$
+  |A_n| + |B_n| + 2 |C_n| = 4^n
+  $$
+  $$
+  |A_n| = 2 |A_{n - 1}| + 2 |C_{n - 1}|
+  $$
+  $$
+  |B_n| = 2 |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+  $$
+  |C_n| = |A_{n - 1}| + |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  Es fácil darse cuenta de que $|C_n| = 4^{n - 1}$, por lo que se reducen las relaciones a
+  $$
+  |A_n| + |B_n| + 2 \cdot 4^{n - 1} = 4^n \Longrightarrow |A_n| + |B_n| = 2 \cdot 4^{n - 1}
+  $$
+  $$
+  |A_n| = 2 |A_{n - 1}| + 2 \cdot 4^{n - 2}
+  $$
+  $$
+  |B_n| = 2 |B_{n - 1}| + 2 \cdot 4^{n - 2}
+  $$
+
+  Restando las dos últimas relaciones, se tiene que
+  $$
+  |A_n| - |B_n| = 2 \left(|A_{n - 1}| - |B_{n - 1}|\right)
+  $$
+
+  Se sabe que $A_{1} = \{\mathtt{c}, \mathtt{d}\}$ y que $B_1 = \varnothing$, por lo que $|A_1| - |B_1| = 2$, y entonces, $|A_2| - |B_2| = 4$, e inductivamente
+  $$
+  |A_n| - |B_n| = 2^n
+  $$
+
+  Uniendo esta relación con $|A_n| + |B_n| = 2 \cdot 4^{n - 1}$, se tiene que
+  $$
+  |A_n| = 2^{n - 1} + 4^{n - 1}
+  $$
+
+  Siendo este el número de palabras $w$ de $n$ letras con las características requeridas.
+
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Encuentra todas las funciones $f: \mathbb{R} \to (0, + \infty)$ continuas y derivables dos veces que cumplen que
+    $$
+    f''(x) f(x) \geqslant 2 (f'(x))^2
+    $$
+
+    para todo $x \in \mathbb{R}$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se puede ver que la desigualdad del enunciado forma parte de una derivada. Por ejemplo, al derivar la siguiente función:
+  $$
+  g = \frac{1}{f} \Longrightarrow g'' = \left(\frac{1}{f}\right)'' = \left(\frac{-f'}{f^2}\right)' = \frac{-f'' f^2 + 2 f (f')^2}{f^4} = \frac{2 (f')^2 -f'' f}{f^3}
+  $$
+
+  Sabiendo que $ 2 (f'(x))^2 - f''(x) f(x) \leqslant 0$, se tiene que
+  $$
+  \frac{2 (f')^2 -f'' f}{f^3} \geqslant 0 \Longrightarrow g'' \geqslant 0
+  $$
+
+  Por lo que la función $g$ es cóncava para todo $x \in \mathbb{R}$. Entonces, para cualquier conjunto de valores $a < b$, $u < a$ y $b < v$, se cumple que
+  $$
+  \frac{g(a) - g(u)}{a - u} \geqslant \frac{g(b) - g(a)}{b - a} \geqslant \frac{g(v) - g(b)}{v - b}
+  $$
+
+  Tomando límites en la expresión anterior cuando $u \to - \infty$ y $v \to + \infty$, se sigue que
+  $$
+  0 \geqslant \frac{g(b) - g(a)}{b - a} \geqslant 0
+  $$
+
+  Como $g = \displaystyle\frac{1}{f}$ es una función estrictamente positiva para todo $x \in \mathbb{R}$, la única posibilidad es que $g(a) = g(b)$ para cualquier $a, b \in \mathbb{R}$. Entonces, $g$ es constante y por tanto $f$ también. Y de aquí se deduce que las únicas funciones que cumplen la desigualdad del enunciado son las funciones constantes positivas, del tipo $f(x) = C$, con $C > 0$.
+
+\end{document}

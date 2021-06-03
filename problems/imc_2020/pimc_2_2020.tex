@@ -1,0 +1,63 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $A$ y $B$ matrices reales $n \times n$ tales que
+    $$
+    \rank{(AB - BA + I)} = 1
+    $$
+
+    donde $I$ es la matriz identidad $n \times n$. Prueba que
+    $$
+    \tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2} n (n - 1)
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Utilizando algunas propiedades de la traza de dos matrices, como que $\tr{(XY)} = \tr{(YX)}$ y que $\tr{(X)} + \tr{(Y)} = \tr{(X + Y)}$, se tiene que la expresión a demostrar queda como:
+
+  \begin{equation*}
+    \begin{split}
+      \tr{(ABAB)} - \tr{(A^2 B^2)} & =
+      \frac{1}{2}\left(2 \, \tr{(ABAB)} - 2 \, \tr{(A^2 B^2)}\right) = \\ & =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(ABAB)} - \tr{(AABB)} - \tr{(AABB)}\right) = \\ & =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(A(BAB))} - \tr{(A(ABB))} - \tr{((AAB)B)}\right) = \\ & =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{((BAB)A)} - \tr{((ABB)A)} - \tr{(B(AAB))}\right) = \\ & =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(BABA)} - \tr{(ABBA)} - \tr{(BAAB)}\right) = \\ & =
+      \frac{1}{2}\tr{(ABAB + BABA - ABBA - BAAB)} = \\ & =
+      \frac{1}{2}\tr{((AB - BA)^2)}
+    \end{split}
+  \end{equation*}
+
+  Sean $M = AB - BA + I$ y $N = M - I = AB - BA$.
+
+  De la condición $\rank{(M)} = \rank{(AB - BA + I)} = 1$ se obtiene que o bien todos los autovalores de $M$ son nulos con multiplicidad $n - 1$, o bien existe un único autovalor no nulo (con multiplicidad $1$ y el resto de autovalores nulos con multiplicidad $n - 1$).
+
+  Como ocurre que
+
+  \begin{equation*}
+    \begin{split}
+      \tr{(M)} & =
+      \tr{(AB - BA + I)} = \\ & =
+      \tr{(AB)} - \tr{(BA)} + \tr{(I)} = \\ & =
+      \tr{(I)} = n
+    \end{split}
+  \end{equation*}
+
+  se tiene que $M$ tiene un único autovalor no nulo con valor $n$ y el resto de autovalores son nulos. Por tanto, el espectro de $M$ es $\sigma(M) = \{0, n\}$.
+
+  Como $N = M - I$, el espectro de $N$ es $\sigma(N) = \{-1, n - 1\}$, y el espectro de $N^2$ es $\sigma(N^2) = \{1, (n - 1)^2\}$.
+
+  Nótese que $\tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2}\tr{((AB - BA)^2)} = \frac{1}{2}\tr{(N^2)}$. Y se sabe que la traza de $N^2$ es la suma de sus autovalores, por tanto:
+  $$
+  \tr{(N^2)} = 1 \cdot (n - 1) + (n - 1)^2 = n (n - 1)
+  $$
+
+  Y por tanto, queda demostrado que 
+  $$
+  \tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2}\tr{((AB - BA)^2)} = \frac{1}{2}\tr{(N^2)} = \frac{1}{2} n (n - 1)
+  $$
+
+\end{document}
