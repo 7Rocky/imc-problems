@@ -1,0 +1,29 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Determina si existe algún número natural impar $n$ y dos matrices $n \times n$ de entradas enteras $A$ y $B$ que satisfacen las siguientes condiciones:
+
+    \begin{enumerate}[1.]
+      \item $\det{(B)} = 1$.
+      \item $A B = B A$.
+      \item $A^4 + 4 A^2 B^2 + 16 B^4 = 2019 I$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se cumple que
+  $$
+  A^4 \equiv A^4 + 4 A^2 B^2 + 16 B^4 = 2019 I \pmod{4} \Longrightarrow A^4 \equiv 2019 I \pmod{4}
+  $$
+
+  Y entonces
+  $$
+  \det{(A^4)} = \left(\det{(A)}\right)^4 \equiv \det{(2019 I)} = 2019^n \pmod{4}
+  $$
+
+  Como $n$ es impar, $2019^n \equiv 3 \pmod{4}$, y por tanto $\left(\det{(A)}\right)^4 \equiv  2019^n \equiv 3 \pmod{4}$, pero $3$ no es un residuo cuadrático módulo $4$, por lo que no existen tales matrices $A$ y $B$.
+
+\end{document}
