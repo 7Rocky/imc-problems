@@ -1,0 +1,47 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Determina todos los pares $(a, b)$ de números reales para los que existe una única matriz simétrica $M_{2 \times 2}$, con entradas reales tal que $\tr{(M)} = a$ y $\det{(M)} = b$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sea la matriz $M = \left(\begin{matrix}x & y \\ y & z\end{matrix}\right)$. Es fácil ver que:
+  $$
+  \left\{
+    \begin{matrix}
+      a & = & \tr{(M)} & = & x + z & \Longrightarrow & z & = & a - x \\
+      b & = & \det{(M)} & = & xz - y^2 & \Longrightarrow & y & = & \sqrt{ax - x^2 - b}
+    \end{matrix}
+  \right .
+  $$
+
+  Entonces, la matriz $M$ queda como:
+  $$
+  M = \left(
+    \begin{matrix}
+      x & \sqrt{ax - x^2 - b} \\
+      \sqrt{ax - x^2 - b} & a - x
+    \end{matrix}
+  \right)
+  $$
+
+  Como las entradas de $M$ son reales, $\sqrt{ax - x^2 - b} \in \R \iff ax - x^2 - b \geq 0$.
+  $$
+  ax - x^2 - b \geq 0 \iff x^2 - ax + b \leq 0
+  $$
+  $$
+  x^2 - ax + b = 0 \iff x = \frac{a \pm \sqrt{a^2 - 4b}}{2}
+  $$
+  $$
+  x^2 - ax + b \leq 0 \iff \frac{a - \sqrt{a^2 - 4b}}{2} \leq x \leq \frac{a + \sqrt{a^2 - 4b}}{2}
+  $$
+
+  Sin embargo, este parámetro $x$ puede tomar infinitos valores para valores $(a, b)$ tales que $a^2 - 4b > 0$. Solamente cuando ocurra que $a^2 - 4b = 0 \Longrightarrow a^2 = 4b$, el parámetro $x$ tendrá un único valor, que será $x = \displaystyle\frac{a}{2}$. Entonces, la matriz $M$ sería:
+  $$
+  M = \frac{1}{2} \cdot \left(\begin{matrix}a & 0 \\ 0 & a\end{matrix}\right)
+  $$
+
+\end{document}
