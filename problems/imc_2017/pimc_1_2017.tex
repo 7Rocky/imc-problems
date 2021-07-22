@@ -1,0 +1,89 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Determina todos los números complejos $\lambda$ para los que existe un número natural $n$ y una matriz real $A_{n \times n}$ tal que $A^2 = A^T$ y $\lambda$ es autovalor de $A$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Como $A^2 = A^T$, se tiene que $|A^2| = |A^T|$ y que $\tr{(A^2)} = \tr{(A^T)}$.
+
+  Además, se sabe que el determinante de una matriz es igual al producto de sus autovalores; y que su traza, es la suma de los autovalores.
+
+  Por otro lado, si $\lambda$ es autovalor de $A$, $\lambda$ será también autovalor de $A^T$; y $\lambda^2$ será autovalor de $A^2$.
+
+  Utilizando las siguientes propiedades del determinante:
+  \begin{align*} 
+    |A^2| & =  |A|^2 
+    \\ 
+    |A^T| & =  |A|
+  \end{align*}
+
+  Se puede deducir que:
+  $$
+  |A^2| = |A^T| 
+  \iff 
+  |A|^2 = |A|
+  \iff 
+  |A| \cdot \big(|A| - 1\big) = 0
+  $$
+  $$
+  |A| = \{0, 1\}\Longrightarrow \prod_{k = 1}^n \lambda_k = \{0, 1\}
+  $$
+
+  Del mismo modo, de la traza de las matrices se obtiene lo siguiente: 
+  $$
+  \tr{(A^2)} = \tr{(A^T)} \Longrightarrow \sum_{k = 1}^n \lambda_k^2 = \sum_{k = 1}^n \lambda_k
+  $$
+
+  Uniendo estas condiciones, se sabe que si $|A| = 0$, entonces $\exists \lambda_k = 0$ para que se cumpla la condición del determinante. Los únicos números que verifican la condición de la traza son:
+  $$
+  \lambda_k = 0 
+  \Longrightarrow
+  \begin{cases} 
+    \displaystyle\sum_{k = 1}^n \lambda_k^2 = n \cdot 0^2 & = 0 \\ \\
+    \displaystyle\sum_{k = 1}^n \lambda_k = n \cdot 0 & = 0 
+  \end{cases}
+  $$
+  $$
+  \lambda_k = 1 
+  \Longrightarrow
+  \begin{cases} 
+    \displaystyle\sum_{k = 1}^n \lambda_k^2 = n \cdot 1^2 & = n \\ \\
+    \displaystyle\sum_{k = 1}^n \lambda_k = n \cdot 1 & = n 
+  \end{cases}
+  $$
+  $$
+  \left . 
+    \begin{matrix} 
+      \lambda_{2k - 1} = \e^{\text{i} \frac{2\pi}{3}} \\
+      \lambda_{2k} = \e^{-\text{i} \frac{2\pi}{3}}
+    \end{matrix}
+  \right \}
+  \Longrightarrow
+  \begin{cases} 
+    \displaystyle\sum_{k = 1}^n \lambda_k^2 = 
+    \frac{n}{2} \cdot \bigg(\big(\e^{\text{i} \frac{2\pi}{3}}\big)^2 + \big(\e^{-\text{i} \frac{2\pi}{3}}\big)^2 \bigg) = 
+    \frac{n}{2} \cdot \Big(\e^{-\text{i} \frac{2\pi}{3}} + \e^{\text{i} \frac{2\pi}{3}}\Big) & = 
+    \displaystyle\frac{-n}{2} \\ \\
+    \displaystyle\sum_{k = 1}^n \lambda_k = 
+    \frac{n}{2} \cdot \Big(\e^{\text{i} \frac{2\pi}{3}} + \e^{-\text{i} \frac{2\pi}{3}}\Big) & = 
+    \displaystyle\frac{-n}{2}
+  \end{cases}
+  $$
+
+  Estos números, a excepción de $\lambda = 0$, cumplen también la condición del determinante cuando $|A| = 1$.
+
+  Con todo esto, se puede decir que los autovalores de una matriz $A$ tal que $A^2 = A^T$ pueden ser $\lambda = 0$, $\lambda = 1$ ó $\lambda = \e^{\pm \text{i} \frac{2\pi}{3}}$. Estos autovalores pueden tener distintas multiplicidades. El autovalor $\lambda = 0$ solo aparece cuando $|A| = 0$. Y los autovalores $\lambda = \e^{\pm \text{i} \frac{2\pi}{3}}$ siempre aparecen en pareja (complejos conjugados).
+
+  Otra opción habría sido darse cuenta de que:
+  $$
+  A^2 = A^T \iff A^4 = \big(A^T\big)^2 = \big(A^2\big)^T = (A^T)^T \Longrightarrow A^4 = A
+  $$
+  $$
+  |A^4| = |A| \iff |A| \cdot (|A|^3 - 1) = 0 \iff |A| = \left\{0, 1, \e^{\text{i} \frac{2\pi}{3}}, \e^{-\text{i} \frac{2\pi}{3}}\right\}
+  $$
+
+\end{document}
