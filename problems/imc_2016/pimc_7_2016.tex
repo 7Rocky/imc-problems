@@ -1,0 +1,29 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Hoy \textbf{Ivan the Confessor} \textit{prefiere} las funciones $f: [0, 1] \to \R$ que cumplen que $f(x) + f(y) \geq |x - y|$ para cualquier pareja de valores $x, y \in [0, 1]$. Encuentra el mínimo valor de $\displaystyle\int_0^1 f$ de todas las posibles funciones \textit{preferidas}.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Aprovechando la simetría de la expresión del enunciado, se puede suponer que la variable $x \in \left[0, \displaystyle\frac{1}{2}\right]$ y que $y \in \left[\displaystyle\frac{1}{2}, 1\right]$. De esta manera
+  $$
+  \int_0^1 f(t) \dt = \int_0^\frac{1}{2} f(x) \dx + \int_\frac{1}{2}^1 f(y) \dy
+  $$
+
+  Y realizando un cambio de variable $y = x + \displaystyle\frac{1}{2}$, se obtiene que
+  \begin{equation*}
+    \begin{split}
+      \int_0^1 f(t) \dt & = \int_0^\frac{1}{2} f(x) \dx + \int_0^\frac{1}{2} f\left(x + \frac{1}{2}\right) \dx \\ & =
+      \int_0^\frac{1}{2} \left(f(x) + f\left(x + \frac{1}{2}\right)\right) \dx \\ & \geq
+      \int_0^\frac{1}{2} \left|x - \left(x + \frac{1}{2}\right)\right| \dx \\ & =
+      \int_0^\frac{1}{2} \frac{1}{2} \dx \\ & =
+      \frac{1}{4}
+    \end{split}
+  \end{equation*}
+
+  Y entonces, $\displaystyle\int_0^1 f \geq \displaystyle\frac{1}{4}$.
+
+\end{document}
