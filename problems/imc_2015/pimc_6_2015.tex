@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Probar que:
+    $$
+    \sum_{n = 1}^\infty \frac{1}{\sqrt{n} \, (n + 1)} < 2
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se parte de la siguiente serie telescópica, ya que se conoce su resultado:
+  $$
+  \sum_{n = 1}^\infty \left(\frac{2}{\sqrt{n}} - \frac{2}{\sqrt{n + 1}} \right) = \frac{2}{\sqrt{1}} - \lim_{n \to \infty} \frac{2}{\sqrt{n + 1}} = 2 - 0 = 2
+  $$
+
+  Entonces, hay que demostrar que:
+  $$
+  \sum_{n = 1}^\infty \frac{1}{\sqrt{n} \, (n + 1)} < \sum_{n = 1}^\infty \left(\frac{2}{\sqrt{n}} - \frac{2}{\sqrt{n + 1}} \right)
+  $$
+
+  Operando un poco la serie telescópica, se llega a lo siguiente:
+  \begin{equation*}
+    \begin{split}
+      \sum_{n = 1}^\infty \left(\frac{2}{\sqrt{n}} - \frac{2}{\sqrt{n + 1}} \right) &= \sum_{n = 1}^\infty \frac{2\sqrt{n + 1} - 2\sqrt{n}}{\sqrt{n} \sqrt{n + 1}} = \sum_{n = 1}^\infty \frac{2(n + 1) - 2\sqrt{n}\sqrt{n + 1}}{\sqrt{n} (n + 1)} = 
+      \\
+      & =
+      \sum_{n = 1}^\infty \frac{1}{\sqrt{n} \, (n + 1)} + \sum_{n = 1}^\infty \frac{2n + 1 - 2\sqrt{n}\sqrt{n + 1}}{\sqrt{n} (n + 1)} \Longrightarrow
+      \\
+      & \Longrightarrow \sum_{n = 1}^\infty \frac{1}{\sqrt{n} \, (n + 1)} = 2 - \sum_{n = 1}^\infty \frac{2n + 1 - 2\sqrt{n}\sqrt{n + 1}}{\sqrt{n} (n + 1)}
+    \end{split}
+  \end{equation*}
+
+  Entonces, si la sucesión $\displaystyle\frac{2n + 1 - 2\sqrt{n}\sqrt{n + 1}}{\sqrt{n} (n + 1)}$ es de números positivos, queda demostrado el problema. Y, en efecto, lo es por la desigualdad de las medias aritmética y geométrica:
+  \begin{equation*}
+    \begin{split}
+      \frac{2n + 1 - 2\sqrt{n}\sqrt{n + 1}}{\sqrt{n} (n + 1)} > 0 & \iff
+      2n + 1 - 2\sqrt{n}\sqrt{n + 1} > 0 \\ & \iff
+      \frac{n + (n + 1)}{2} > \sqrt{n \cdot (n + 1)}
+    \end{split}
+  \end{equation*}
+
+\end{document}
