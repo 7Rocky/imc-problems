@@ -3,14 +3,14 @@
 \begin{document}
 
   \begin{shaded}
-    Sea $f: (-1, 1) \to \mathbb{R}$ una función dos veces diferenciable tal que
+    Sea $f: (-1, 1) \to \R$ una función dos veces diferenciable tal que
     $$
-    2 f'(x) + x f''(x) \geqslant 1
+    2 f'(x) + x f''(x) \geq 1
     $$
 
     Demostrar que
     $$
-    \int_{-1}^1 x f(x) \, \text{d}x \geqslant \frac{1}{3}
+    \int_{-1}^1 x f(x) \dx \geq \frac{1}{3}
     $$
   \end{shaded}
 
@@ -18,22 +18,22 @@
 
   Sea $g(x) = x f(x) - \displaystyle\frac{x^2}{2}$. Se cumple que
   $$
-  g''(x) = \left(x f(x) - \frac{x^2}{2}\right)'' = \left(f(x) + x f'(x) - x\right)' = 2 f'(x) + x f''(x) - 1 \geqslant 0
+  g''(x) = \left(x f(x) - \frac{x^2}{2}\right)'' = \left(f(x) + x f'(x) - x\right)' = 2 f'(x) + x f''(x) - 1 \geq 0
   $$
 
   Entonces, la función $g$ es convexa. Ahora, se ve que
   $$
-  \int_{-1}^1 x f(x) \, \text{d}x = \int_{-1}^1 \left(g(x) + \frac{x^2}{2}\right) \, \text{d}x = \frac{1}{3} + \int_{-1}^1 g(x) \, \text{d}x
+  \int_{-1}^1 x f(x) \dx = \int_{-1}^1 \left(g(x) + \frac{x^2}{2}\right) \dx = \frac{1}{3} + \int_{-1}^1 g(x) \dx
   $$
 
-  Si se aproxima la función $g$ por la recta tangente en $x = 0$, se tiene que $g(x) \approx g(0) + g'(0) \cdot x = a x$, siendo $a = g'(0)$, de hecho, se cumplirá que $g(x) \geqslant a x$, porque $g$ es convexa. Entonces
+  Si se aproxima la función $g$ por la recta tangente en $x = 0$, se tiene que $g(x) \approx g(0) + g'(0) \cdot x = a x$, siendo $a = g'(0)$, de hecho, se cumplirá que $g(x) \geq a x$, porque $g$ es convexa. Entonces
   $$
-  \int_{-1}^1 g(x) \, \text{d}x \geqslant \int_{-1}^1 a x \, \text{d}x = 0
+  \int_{-1}^1 g(x) \dx \geq \int_{-1}^1 a x \dx = 0
   $$
 
   Y, por tanto, se demuestra que
   $$
-  \int_{-1}^1 x f(x) \, \text{d}x \geqslant \frac{1}{3}
+  \int_{-1}^1 x f(x) \dx \geq \frac{1}{3}
   $$
 
 \end{document}
