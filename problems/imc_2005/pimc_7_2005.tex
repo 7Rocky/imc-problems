@@ -1,0 +1,40 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $f(x) = x^2 + b x + c$, donde $b$ y $c$ son números reales, y sea
+    $$
+    M = \{x \in \R : |f(x)| < 1\}
+    $$
+
+    Claramente, el conjunto $M$ consiste en un conjunto vacío o en dos intervalos disjuntos. Se denota la suma de sus longitudes como $|M|$. Prueba que $|M| \leq 2 \sqrt{2}$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se puede expresar $f$ como $f(x) = \left(x + \displaystyle\frac{b}{2}\right)^2 + d$, con $d = c - \displaystyle\frac{b^2}{4}$. Y así, se ve que $f(x) \geq d$.
+
+  Si $d \geq 1$, se tiene que $M = \varnothing$ y entonces $|M| = 0$, ya que $f(x) \geq 1$.
+
+  Si $-1 < d < 1$, entonces 
+  $$
+  |f(x)| < 1 \iff -1 < f(x) < 1 \iff -1 < \left(x + \displaystyle\frac{b}{2}\right)^2 + d < 1 \iff \left|x + \frac{b}{2}\right| < \sqrt{1 - d}
+  $$
+
+  Se tiene $M = \left(-\frac{b}{2} - \sqrt{1 - d}, -\frac{b}{2} + \sqrt{1 - d}\right)$, luego $|M| = 2\sqrt{1 - d} < 2 \sqrt{1 - (-1)} = 2\sqrt{2}$.
+
+  Por último, si $d \leq 1$, se ve que 
+  $$
+  -1 < \left(x + \displaystyle\frac{b}{2}\right)^2 + d < 1 \iff \sqrt{|d| - 1}\left|x + \frac{b}{2}\right| < \sqrt{|d| + 1}
+  $$
+
+  Y entonces $M = (-\sqrt{|d| + 1}, -\sqrt{|d| - 1}) \cup (\sqrt{|d| - 1}, \sqrt{|d| + 1})$, y se cumple que
+  $$
+  |M| = (\sqrt{|d| + 1} - \sqrt{|d| - 1}) + (\sqrt{|d| + 1} - \sqrt{|d| - 1}) = 2 (\sqrt{|d| + 1} - \sqrt{|d| - 1}) =
+  $$
+  $$
+  = 2 \frac{(|d| + 1) - (|d| - 1)}{\sqrt{|d| + 1} + \sqrt{|d| - 1}} = \frac{4}{\sqrt{|d| + 1} + \sqrt{|d| - 1}} < \frac{4}{\sqrt{2}} = 2 \sqrt{2}
+  $$
+
+\end{document}
