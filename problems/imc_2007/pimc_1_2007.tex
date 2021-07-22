@@ -1,0 +1,41 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $f$ un polinomio de segundo grado con coeficientes enteros tal que $f(k)$ es divisible por $5$ para todo número entero $k$. Prueba que todos los coeficientes de $f$ son divisibles por $5$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sea $f(x) = a x^2 + b x + c$, con $a, b, c \in \mathbb{Z}$. En primer lugar se ve que
+  $$
+  f(0) = c \equiv 0 \pmod{5} \iff c = 5n, \quad n \in \mathbb{Z}
+  $$
+
+  Entonces $f(x) \equiv a x^2 + b x \pmod{5}$. Por otro lado, se ve que
+  $$
+  f(1) = a + b + c \equiv a + b \pmod{5}
+  $$
+  $$
+  f(-1) = a - b + c \equiv a - b \pmod{5}
+  $$
+
+  Como se sabe que $5 | f(1)$ y $5 | f(-1)$, se cumple que $5 | (f(1) + f(-1))$ y también se cumple que $5 | (f(1) - f(-1))$. Por tanto
+  $$
+  f(1) + f(-1) = 2a + 2c \equiv 2a \equiv 0 \pmod{5} \iff a = 5l, \quad l \in \mathbb{Z}
+  $$
+  $$
+  f(1) - f(-1) = 2b \equiv 0 \pmod{5} \iff b = 5m, \quad m \in \mathbb{Z}
+  $$
+
+  Y entonces, el polinomio queda como
+  $$
+  f(x) = (5l) x^2 + (5m) x + (5n), \quad l, m, n \in \mathbb{Z}
+  $$
+
+  Y queda demostrado que si $5 | f(k)$ para cualquier $k$ entero, entonces los coeficientes de $f$ son divisibles entre $5$.
+
+  Otra forma de demostrarlo es considerar el polinomio sobre el cuerpo $\mathbb{F}_5$. Entonces, para $k \in \{0, 1, 2, 3, 4\}$ se tiene que $f(k) \equiv 0 \pmod{5}$. Esto quiere decir que $f$ tiene $5$ raíces, pero es de grado $2$. Por tanto, se sigue que $f \equiv 0 \pmod{5}$, que es equivalente a decir que los coeficientes del polinomio son divisibles entre $5$.
+
+\end{document}
