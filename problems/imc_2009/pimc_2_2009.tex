@@ -1,0 +1,46 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $A$, $B$ y $C$ matrices cuadradas reales del mismo orden. Se sabe que $A$ es invertible. Demuestra que si $(A - B) C = B A^{-1}$ entonces $C (A - B) = A^{-1} B$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Modificando la expresión que se cumple, se obtiene lo siguiente:
+  \begin{equation*}
+    \begin{split}
+      (A - B) C = B A^{-1} & \iff 
+      (A - B) C A = B \\ & \iff
+      A^{-1} (A - B) C A = A^{-1} B \\ & \iff
+      (I - A^{-1} B) C A = A^{-1} B \\ & \iff
+      C A - A^{-1} B C A = A^{-1} B
+    \end{split}
+  \end{equation*}
+
+  Para que se cumpla que $C (A - B) = A^{-1} B$, basta con demostrar que $A^{-1} B C A = C B$, lo cual se puede ver suponiendo que se cumple que $C (A - B) = A^{-1} B$. Entonces:
+  $$
+  (A - B) C = B A^{-1} \iff (A - B) C A = B \iff A C A - B C A = B
+  $$
+  $$
+  C (A - B) = A^{-1} B \iff A C (A - B) = B \iff A C A - A C B = B
+  $$
+
+  Uniendo estas dos expresiones se obtiene $B C A = A C B \iff A^{-1} B C A = C B$, con lo cual queda demostrado que si $(A - B) C = B A^{-1}$ entonces $C (A - B) = A^{-1} B$.
+
+  Otra manera de verlo:
+  \begin{equation*}
+    \begin{split}
+      (A - B) C = B A^{-1} & \iff 
+      A C - B C - B A^{-1} + I = I \\ & \iff
+      A C - B C + A A^{-1} - B A^{-1} = I \\ & \iff
+      (A - B) (C + A^{-1}) = I \\ & \iff
+      (C + A^{-1}) (A - B) = I \\ & \iff
+      C A + A^{-1} A - C B - A^{-1} B = I \\ & \iff
+      C A + I - C B - A^{-1} B = I \\ & \iff
+      C (A - B) = A^{-1} B
+    \end{split}
+  \end{equation*}
+
+\end{document}
