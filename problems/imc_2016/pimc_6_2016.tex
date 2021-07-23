@@ -1,0 +1,72 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $(x_n)_{n = 1}^\infty$ una sucesión de números positivos tal que $\displaystyle\sum_{n = 1}^\infty \displaystyle\frac{x_n}{2n - 1} = 1$. Prueba que
+    $$
+    \sum_{k = 1}^\infty \sum_{n = 1}^k \frac{x_n}{k^2} \leq 2
+    $$
+
+    \end{shaded}
+
+  \textbf{Solución:}
+
+  Operando la expresión anterior, se tiene que
+  \begin{equation*}
+    \begin{split}
+      \sum_{k = 1}^\infty \sum_{n = 1}^k \frac{x_n}{k^2} & =
+      x_1 + \frac{x_1 + x_2}{2^2} + \frac{x_1 + x_2 + x_3}{3^2} + \dots \\ & =
+      x_1 \left(1 + \frac{1}{2^2} + \frac{1}{3^2} + \dots \right) + x_2 \left(\frac{1}{2^2} + \frac{1}{3^2} + \dots \right) + x_3 \left(\frac{1}{3^3} + \dots\right) + \dots \\ & =
+      \sum_{n = 1}^\infty \left(x_n \cdot \sum_{k = n}^\infty \frac{1}{k^2} \right)
+    \end{split}
+  \end{equation*}
+
+  Se puede encontrar una expresión similar con el primer sumatorio:
+  $$
+  \sum_{n = 1}^\infty \frac{x_n}{2n - 1} = 1
+  \iff
+  \sum_{n = 1}^\infty \left(x_n \cdot \frac{2}{2n -1}\right) = 2
+  $$
+
+  Con esto, se puede llegar a que 
+  \begin{equation*}
+    \begin{split}
+    & \sum_{k = 1}^\infty \sum_{n = 1}^k \frac{x_n}{k^2} \leq 2 \\ \iff
+    & \sum_{n = 1}^\infty \left(x_n \cdot \sum_{k = n}^\infty \frac{1}{k^2} \right) \leq \sum_{n = 1}^\infty \left(x_n \cdot \frac{2}{2n - 1}\right) \\ \iff
+    & \sum_{k = n}^\infty \frac{1}{k^2} \leq \frac{2}{2n -1}, \forall n
+    \end{split}
+  \end{equation*}
+
+  \newpage
+  Se puede demostrar que esta desigualdad entre sucesiones es cierta mediante la regla del sandwich. Para ello, se usa la sucesión $\displaystyle\frac{1}{2n - 1}$ como minorante, de manera que:
+  $$
+  \frac{1}{2n - 1} \leq \sum_{k = n}^\infty \frac{1}{k^2} \leq \frac{2}{2n - 1}
+  $$
+
+  $n = 1$:
+  $$
+  1 \leq \frac{\pi^2}{6} \leq 2
+  \iff
+  6 \leq \pi^2 \leq 12
+  $$
+
+  $n \to \infty$:
+  $$
+  0 \leq 0 \leq 0
+  $$
+
+  Tambien se puede ver que
+  $$
+  \sum_{k = n}^\infty \frac{1}{k^2} \leq \sum_{k = n}^\infty \frac{1}{k^2 - \frac{1}{4}} = 
+  \sum_{k = n}^\infty \left(\frac{1}{k - \frac{1}{2}} - \frac{1}{k + \frac{1}{2}}\right) =
+  \frac{1}{n - \frac{1}{2}} - \lim_{k \to \infty} \frac{1}{k + \frac{1}{2}} = 
+  \frac{2}{2n - 1}
+  $$
+
+  Sabiendo que estas tres sucesiones utilizadas para la regla del sándwich son de números positivos, decrecientes y acotadas, se puede asegurar que se cumple la desigualdad anterior, con lo que se demuestra que
+  $$
+  \sum_{k = 1}^\infty \sum_{n = 1}^k \frac{x_n}{k^2} \leq 2
+  $$
+
+\end{document}
