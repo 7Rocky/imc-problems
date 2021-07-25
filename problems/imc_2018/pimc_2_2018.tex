@@ -1,0 +1,30 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    ¿Existe algún cuerpo tal que su grupo multiplicativo es isomorfo a su grupo sumativo?
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Suponiendo que existe tal cuerpo $\mathbb{F}$, se puede definir un isomorfismo entre sus grupos multiplicativo y sumativo. Sea $f: \mathbb{F}^* \to \mathbb{F}^+$.
+
+  Al ser el isomorfismo un homomorfismo biyectivo (inyectivo y sobreyectivo) entre grupos, el elemento neutro de $\mathbb{F}^*$ se mapea con el elemento neutro de $\mathbb{F}^+$, cumpliéndose que $f(1) = 0$ y que $1 = f^{-1}(0)$.
+
+  Además, se sabe que el homomorfismo conserva la estructura de ambos grupos, luego $f(a \cdot b) = f(a) + f(b)$.
+
+  Sabiendo que $(-1)^2 = (-1) \cdot (-1) = 1$, se tiene que
+  $$
+  f(1) = f((-1)^2) = f((-1) \cdot (-1)) = f(-1) + f(-1) = 2 f(-1) = 0
+  $$
+
+  Entonces, o bien $f(-1) = 0$, o bien la característica del cuerpo es 2 ($\charField{(\mathbb{F})} = 2$).
+
+  Se sabe que $f(-1) \ne 0$ porque si lo fuera, la aplicación $f$ no sería inyectiva (ya que $f(\pm 1) = 0$). Entonces se tiene que $\charField{(\mathbb{F})} = 2$ y el cuerpo $\mathbb{F}$ es finito.
+
+  No obstante, existe un único cuerpo finito de característica 2 (cuerpo de 2 elementos), que es $\mathbb{F}_2 = \{ 0, 1 \}$, cuyos grupos sumativos y multiplicativos son $\mathbb{F}^+_2 = \{ 0, 1 \}$ y $\mathbb{F}^*_2 = \{ 1 \}$, que no son isomorfos.
+
+  Entonces, no existe ningún cuerpo cuyos grupos sumativo y multiplicativo sean isomorfos.
+
+\end{document}
