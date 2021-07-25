@@ -1,0 +1,58 @@
+\documentclass[../../main.tex]{subfiles}
+
+\pagenumbering{gobble}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $(a_n)_{n = 1}^\infty$ y $(b_n)_{n = 1}^\infty$ dos sucesiones de números positivos. Demuestra que los siguientes enunciados son equivalentes.
+
+    \begin{enumerate}[(1)]
+      \item Existe una sucesión $(c_n)_{n = 1}^\infty$ de números positivos tal que $\displaystyle\sum_{n = 1}^\infty \frac{a_n}{c_n}$ y $\displaystyle\sum_{n = 1}^\infty \frac{c_n}{b_n}$ son convergentes.
+      \item $\displaystyle\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}$ converge.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se trata de un ``si y solo si'', es decir, hay que demostrar dos implicaciones:
+
+  (1) $\Longleftarrow$ (2):
+
+  La expresión radical del enunciado (2) se puede expresar de las siguientes maneras:
+  $$
+  \sqrt{\frac{a_n}{b_n}} = \sqrt{\frac{a_n}{b_n}} \cdot \sqrt{\frac{a_n}{a_n}} = \frac{a_n}{\sqrt{a_n \cdot b_n}} = \frac{a_n}{c_n}
+  $$
+  $$
+  \sqrt{\frac{a_n}{b_n}} = \sqrt{\frac{a_n}{b_n}} \cdot \sqrt{\frac{b_n}{b_n}} = \frac{\sqrt{a_n \cdot b_n}}{b_n} = \frac{c_n}{b_n}
+  $$
+
+  Si se elige $c_n = \sqrt{a_n \cdot b_n}$, y sabiendo que $\displaystyle\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}$ converge, entonces seguro que $\displaystyle\sum_{n = 1}^\infty \frac{a_n}{c_n}$ y $\displaystyle\sum_{n = 1}^\infty \frac{c_n}{b_n}$ son convergentes; y por tanto existe una sucesión $(c_n)_{n = 1}^\infty$ que hace que ambas sumas converjan.
+
+  (1) $\Longrightarrow$ (2):
+
+  Usando la desigualdad de Cauchy-Schwarz:
+  $$
+  \left(\sum _{k = 1}^n \alpha_k \cdot \beta_k\right)^2 \leq \left(\sum _{k = 1}^n \alpha_k^2\right)\left(\sum _{k=1}^n \beta_k^2\right)
+  $$
+
+  Y asignando $\alpha_k = \displaystyle\sqrt{\frac{a_k}{c_k}}$ y $\beta_k = \displaystyle\sqrt{\frac{c_k}{b_k}}$, se obtiene lo siguiente
+  \begin{equation*}
+    \begin{split}
+      & 0 < \left(\sum_{n = 1}^\infty \sqrt{\frac{a_n}{c_n}} \cdot \sqrt{\frac{c_n}{b_n}}\right)^2 \leq \left(\sum_{n = 1}^\infty \left(\sqrt{\frac{a_n}{c_n}}\right)^2\right)
+      \cdot
+      \left(\sum_{n = 1}^\infty \left(\sqrt{\frac{c_n}{b_n}}\right)^2\right) \\ \iff &
+      0 < \left(\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}\right)^2 \leq \left(\sum_{n = 1}^\infty \frac{a_n}{c_n}\right) 
+      \cdot
+      \left(\sum_{n = 1}^\infty \frac{c_n}{b_n}\right) \\ \iff &
+      0 < \sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}} \leq \sqrt{\left(\sum_{n = 1}^\infty \frac{a_n}{c_n}\right) 
+      \cdot
+      \left(\sum_{n = 1}^\infty \frac{c_n}{b_n}\right)}
+    \end{split}
+  \end{equation*}
+
+  Como la serie $\displaystyle\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}$ está acotada superiormente por un valor finito (e inferiormente, al tratarse de una sucesión de números positivos), se demuestra que es convergente. \\
+
+  Y con esto, queda demostrado que (1) $\iff$ (2).
+
+\end{document}
