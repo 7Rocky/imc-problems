@@ -1,0 +1,28 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Suponga que en un anillo $R$ no necesariamente conmutativo, el cuadrado de cualquier elemento es $0$. Demuestra que $abc + abc = 0$ para cualesquiera tres elementos de $a, b, c$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Inicialmente se puede ver que $(a + b)^2 = 0$, entonces $(a + b)^2 = a^2 + ab + ba + b^2 = ab + ba = 0$, de donde se concluye que $ab = - (ba)$.
+
+  Una vez sabido esto, se tiene que
+  \begin{equation*}
+    \begin{split}
+      abc & = a (bc) \\ & =
+      - ((bc) a) \\ & =
+      - (b (ca)) \\ & =
+      (ca) b \\ & =
+      c (ab) \\ & =
+      - ((ab) c) \\ & =
+      - abc
+    \end{split}
+  \end{equation*}
+
+  Y por tanto, $abc + abc = 0$.
+
+\end{document}
