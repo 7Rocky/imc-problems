@@ -1,0 +1,25 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $A$ y $B$ dos matrices reales $n \times n$ tales que $A B + A + B = 0$. Demuestra que $A B = B A$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Manipulando la expresión se puede ver que
+  \begin{equation*}
+    \begin{split}
+      A B + A + B = 0 & \iff
+      A B + A + B + I = I \\ & \iff
+      (A + I) (B + I) = I \\ & \iff
+      (B + I) (A + I) = I \\ & \iff
+      B A + A + B + I = I \\ & \iff
+      B A + A + B = 0
+    \end{split}
+  \end{equation*}
+
+  Como $A B + A + B = B A + A + B = 0$, se tiene que $A B - B A = 0 \iff A B = B A$.
+
+\end{document}
