@@ -1,0 +1,26 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    \begin{enumerate}[a)]
+      \item Demuestra que para cualquier $m \in \N$ existe una matriz real $A_{m \times m}$ que cumple que $A^3 = A + I$, donde $I$ es la matriz identidad.
+      \item Demuestra que $\det{(A)} > 0$ para todas las matrices $m \times m$ que cumplen que $A^3 = A + I$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  El apartado a) es sencillo de demostrar, ya que siempre se puede considerar una matriz diagonal $m \times m$ cuyos elementos de la diagonal sean raíces del polinomio $p(\lambda) = \lambda^3 - \lambda - 1$. Como es un polinomio de grado impar de coeficientes reales, seguro que tiene al menos una raíz real, ya que las raíces complejas se presentan en pares conjugados.
+
+  Sea $\lambda_1 \; | \; p(\lambda_1) = 0$, entonces la matriz $A = \lambda_1 I$ cumple que $A^3 = A + I$ para todo $m \in \mathbb{N}$.
+
+  Para demostrar el apartado b), se puede utilizar el hecho de que el determinante de $A$ es igual al producto de sus autovalores. Resulta además que los posibles autovalores de $A$ serán raíces de $p(\lambda)$.
+
+  Se pueden calcular los máximos y mínimos relativos del polinomio, de manera que se tiene $p'(x) = 3x^2 - 1 = 0 \iff x = \pm \displaystyle\frac{1}{\sqrt{3}}$, siendo $x = -\displaystyle\frac{1}{\sqrt{3}}$ el máximo relativo y $x = \displaystyle\frac{1}{\sqrt{3}}$ el mínimo relativo. Sucede que $p\left(-\displaystyle\frac{1}{\sqrt{3}}\right) < 0$ y $p\left(\displaystyle\frac{1}{\sqrt{3}}\right) < 0$, por lo que $p(\lambda)$ solo tiene una solucion real ($\lambda_1$), y dos soluciones complejas ($\lambda_2$ y $\lambda_3$).
+
+  Utilizando el teorema de Bolzano, se puede acotar $\lambda_1$, de manera que $\lambda_1 \in (1, 2)$, ya que $p(1) = -1 < 0$ y $p(2) = 5 > 0$. Entonces $\lambda_1 > 0$.
+
+  Por otro lado, sean $\lambda_2 = r \, \e^{\i\phi}$ y $\lambda_3 = r \, \e^{-\i\phi}$ las raíces complejas de $p(\lambda)$. Por tanto, $\det{(A)} = \lambda_1^\alpha \cdot (\lambda_2 \, \lambda_3)^\beta$, siendo $\alpha$ y $\beta$ las multiplicidades de los autovalores. Se cumple que $\lambda_1^\alpha > 0$ ya que $\lambda_1 > 0$. Y por otro lado, $(\lambda_2 \, \lambda_3)^\beta = \left(r \, \e^{\i\phi} \cdot r \, \e^{-\i\phi} \right)^\beta = \left(r^2\right)^\beta = \left(r^\beta\right)^2 > 0$. Y como todos los factores son estrictamente positivos, se sigue que $\det{(A)} > 0$.
+
+\end{document}
