@@ -1,0 +1,52 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $n$ un número natural. Considérese una matriz $n \times n$ cuyas entradas son $1, 2, \dots, n^2$ escritas en orden empezando de arriba a abajo y de izquierda a derecha. Se eligen $n$ entradas de la matriz de manera que exactamente una entrada es elegida de cada columna y de cada fila. ¿Cuáles son los posibles valores de la suma de las entradas seleccionadas?
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  En primer lugar, es conveniente tomar algunos ejemplos:
+  $$
+  n = 1:
+    \begin{pmatrix}
+      1
+    \end{pmatrix}
+  \Longrightarrow S_1 = 1
+  $$
+  $$
+  n = 2:
+    \begin{pmatrix}
+      1 & 2 \\
+      3 & 4
+    \end{pmatrix}
+  \Longrightarrow S_2 = 5
+  $$
+  $$
+  n = 3:
+    \begin{pmatrix}
+      1 & 2 & 3 \\
+      4 & 5 & 6 \\
+      7 & 8 & 9
+    \end{pmatrix}
+  \Longrightarrow S_3 = 15
+  $$
+
+  Es sencillo darse cuenta de la expresión genérica que tiene esta matriz:
+  $$
+  \begin{pmatrix}
+    0n + 1        & 0n + 2        & \dots  & 0n + n        \\
+    1n + 1        & 1n + 2        & \dots  & 1n + n        \\
+    \vdots        & \vdots        & \ddots & \vdots        \\
+    (n - 1) n + 1 & (n - 1) n + 2 & \dots  & (n - 1) n + n
+  \end{pmatrix}
+  $$
+
+  Como se cogen $n$ entradas de cada fila y columna de manera que no haya filas ni columnas con más de una entrada seleccionada o con ninguna escogida, se ve que la expresión genérica de la suma será:
+  $$
+  S_n = n \sum_{k = 1}^n (k - 1) + \sum_{k = 1}^n k = n \left(\frac{(n - 1) n}{2}\right) + \frac{(n + 1) n}{2} = \frac{n^3 + n}{2}
+  $$
+
+\end{document}
