@@ -1,0 +1,76 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Calcular:
+    $$
+    \lim_{A \to \infty} \frac{1}{A} \int_1^A A^\frac{1}{x} \dx
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se puede utilizar la regla de L'Hôpital, ya que $\displaystyle\lim_{A \to \infty} \int_1^A A^\frac{1}{x} \dx = \int_1^\infty \infty^\frac{1}{x} \dx = \infty$. Y, obviamente, $\displaystyle\lim_{A \to \infty} A = \infty$. Entonces:
+  $$
+  \lim_{A \to \infty} \frac{1}{A} \int_1^A A^\frac{1}{x} \dx =
+  \lim_{A \to \infty} \frac{\displaystyle\frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A A^\frac{1}{x} \dx\right)}{\displaystyle\frac{\text{d}}{\text{d}A}\left(A\right)} =
+  \lim_{A \to \infty} \displaystyle\frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A A^\frac{1}{x} \dx\right)
+  $$
+
+  Para derivar esta integral, es necesario utilizar la fórmula de Leibniz:
+  \begin{multline*}
+    F(x) = \int_{g(x)}^{h(x)} f(t, x) \dt \Longrightarrow \\ \Longrightarrow
+    F'(x) = \int_{g(x)}^{h(x)} \frac{\partial}{\partial x}\big(f(t, x)\big) \dt \; + f\big(h(x), x\big) \cdot h'(x) - f\big(g(x), x\big) \cdot g'(x)
+  \end{multline*}
+
+  Por lo que:
+  $$
+  \displaystyle\frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A A^\frac{1}{x} \dx\right) =
+  \int_1^A \frac{\partial}{\partial A}\big(A^\frac{1}{x}\big) \dx \; + A^\frac{1}{A} \cdot 1 - A^\frac{1}{1} \cdot 0 =
+  \int_1^A \frac{1}{x} \cdot \big(A^{\frac{1}{x} - 1}\big) \dx \; + A^\frac{1}{A}
+  $$
+
+  Entonces, volviendo a la expresión inicial:
+  \begin{equation*}
+    \begin{split}
+      \lim_{A \to \infty} \frac{1}{A} \int_1^A A^\frac{1}{x} \dx & =
+      \lim_{A \to \infty} \left(\int_1^A \frac{1}{x} \cdot \big(A^{\frac{1}{x} - 1}\big) \dx \; + A^\frac{1}{A}\right) = \\ & =
+      \lim_{A \to \infty} \int_1^A \frac{1}{x} \cdot \big(A^{\frac{1}{x} - 1}\big) \dx \; + \lim_{A \to \infty} A^\frac{1}{A}
+    \end{split}
+  \end{equation*}
+
+  Ahora hay dos límites para calcular. Uno de ellos se puede calcular fácilmente, ya que $\displaystyle\lim_{A \to \infty} A^\frac{1}{A} = \displaystyle\lim_{A \to \infty} \e^\frac{\ln A}{A} = \e^0 = 1$, sabiendo que $\ln A \ll A$ cuando $A \to \infty$.
+
+  El otro límite se puede calcular como:
+  \begin{equation*}
+    \begin{split}
+      \lim_{A \to \infty} \int_1^A \frac{1}{x} \cdot \big(A^{\frac{1}{x} - 1}\big) \dx & =
+      \lim_{A \to \infty} \frac{\displaystyle\int_1^A \frac{1}{x} \cdot A^\frac{1}{x} \dx}{A}
+      = \lim_{A \to \infty} \frac{\displaystyle\frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A \frac{1}{x} \cdot A^\frac{1}{x} \dx\right)}{\displaystyle\frac{\text{d}}{\text{d}A}\left(A\right)} = \\ & =
+      \lim_{A \to \infty} \displaystyle\frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A \frac{1}{x} \cdot A^\frac{1}{x} \dx\right)
+    \end{split}
+  \end{equation*}
+
+  Hay que derivar una integral parecida a la anterior. El resultado es:
+  \begin{equation*}
+    \begin{split}
+      \frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A \frac{1}{x} \cdot A^\frac{1}{x} \dx\right) & =
+      \int_1^A \frac{\partial}{\partial A}\left(\frac{1}{x} \cdot A^\frac{1}{x}\right) \dx \; + \frac{1}{A} \cdot A^\frac{1}{A} \cdot 1 - \frac{1}{1} \cdot A^\frac{1}{1} \cdot 0 \\ & =
+      \int_1^A \frac{1}{x^2} \cdot A^{\frac{1}{x} - 1} \dx \; + \frac{A^\frac{1}{A}}{A} = - \left[\frac{A^{\frac{1}{x} - 1}}{\ln A}\right]_1^A + \frac{A^\frac{1}{A}}{A} \\ & =
+      \frac{1}{\ln A} - \frac{A^\frac{1}{A}}{A \cdot \ln A} + \frac{A^\frac{1}{A}}{A}
+    \end{split}
+  \end{equation*}
+
+  Utilizando el resultado de $\displaystyle\lim_{A \to \infty} A^\frac{1}{A} = 1$, se llega a que:
+  $$
+  \lim_{A \to \infty} \frac{\text{d}}{\text{d}A}\left(\displaystyle\int_1^A \frac{1}{x} \cdot A^\frac{1}{x} \dx\right) = \lim_{A \to \infty} \left(\frac{1}{\ln A} - \frac{A^\frac{1}{A}}{A \cdot \ln A} + \frac{A^\frac{1}{A}}{A} \right) = \frac{1}{\infty} - \frac{1}{\infty} + \frac{1}{\infty} = 0
+  $$
+
+  Y, finalmente:
+  $$
+  \lim_{A \to \infty} \frac{1}{A} \int_1^A A^\frac{1}{x} \dx =
+  \lim_{A \to \infty} \int_1^A \frac{1}{x} \cdot \big(A^{\frac{1}{x} - 1}\big) \dx \; + \lim_{A \to \infty} A^\frac{1}{A} = 0 + 1 = 1
+  $$
+
+\end{document}
