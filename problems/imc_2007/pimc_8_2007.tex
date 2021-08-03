@@ -1,0 +1,23 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $x, y, z$ números enteros tales que $S = x^4 + y^4 + z^4$ es divisible entre $29$. Demuestra que $S$ es divisible entre $29^4$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sean $a$ y $r$ dos números enteros tales que $a \equiv r \pmod{29}$. Es bien sabido que este número $r \in \{0, 1, 2, \dots, 27, 28\}$, o lo que es lo mismo, $r \in \{0, \pm 1, \pm 2, \dots, \pm 13, \pm 14\}$.
+
+  Si se analiza $a^2 \equiv r^2 \pmod{29}$, entonces los posibles restos de la división entre $29$ son $r^2 \in \{0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196\}$, y expresado de otra manera: $r^2 \in \{0, \pm 1, \pm 4, \pm 5, \pm 6, \pm 7, \pm 9, \pm 13\}$.
+
+  Por último, si $a^4 \equiv r^4 \pmod{29}$, se cumple que $r^4 \in \{0, 1, 16, 25, 36, 49, 81, 169\}$, que es equivalente a decir que $r^4 \in \{0, 1, 7, 20, 23, 24, 25\}$.
+
+  Sean $b$ y $c$ otros dos números enteros. Para que $a^4 + b^4 + c^4 \equiv 0 \pmod{29}$, tiene que ocurrir que los restos de cada sumando al dividirse entre $29$ sumen un múltiplo de $29$. Utilizando el resultado anterior, se ve que solo existe una combinación para la cual se verifica lo dicho anteriormente. Esta combinación se da cuando $a^4 + b^4 + c^4 \equiv 0 + 0 + 0 \equiv 0 \pmod{29}$.
+
+  Y si $a^4 \equiv 0 \pmod{29}$, entonces $a \equiv 0 \pmod{29}$, ya que $29$ es primo. Y por tanto, $a$ es un múltiplo de $29$, lo que implica que $a^4$ es un múltiplo de $29^4$ (equivalente a decir que $a^4$ es divisible entre $29^4$).
+
+  Y con esto, queda demostrado que si $x^4 + y^4 + z^4$ es divisible entre $29$, entonces también lo será entre $29^4$.
+
+\end{document}
