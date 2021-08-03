@@ -1,0 +1,58 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $a_0, a_1, \dots, a_n$ números reales positivos tales que $a_{k + 1} - a_k \geq 1$ para todo $k = 0, 1, \dots, n - 1$. Prueba que:
+    $$
+    1 + \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \leq \left(1 + \frac{1}{a_0}\right) \left(1 + \frac{1}{a_1}\right) \cdots \left(1 + \frac{1}{a_n}\right)
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  La expresión se puede probar mediante inducción. Para $n = 0$, la desigualdad es cierta (y se cumple la igualdad). Y para $n + 1$ se ve que:
+  \begin{multline*}
+  1 + \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \cdot \left(1 + \frac{1}{a_{n + 1} - a_0}\right) \leq \\ \leq \left(1 + \frac{1}{a_0}\right) \left(1 + \frac{1}{a_1}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \left(1 + \frac{1}{a_{n + 1}}\right) \iff
+  \end{multline*}
+  \begin{multline*}
+  \iff \left[ 1 + \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \right] + \\ + \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \cdot \frac{1}{a_{n + 1} - a_0} \leq \\ \leq \left[ \left(1 + \frac{1}{a_0}\right) \left(1 + \frac{1}{a_1}\right) \cdots \left(1 + \frac{1}{a_n}\right) \right] + \\ + \left(1 + \frac{1}{a_0}\right) \left(1 + \frac{1}{a_1}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 1}}
+  \end{multline*}
+
+  Al aplicar inducción, se asume que la expresión del enunciado es cierta para $n$. Se ha visto que para $n + 1$ aparece precisamente dicha expresión (remarcada entre corchetes). Entonces basta con demostrar que:
+  $$
+  \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \cdot \frac{1}{a_{n + 1} - a_0} \leq \left(1 + \frac{1}{a_0}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 1}}
+  $$
+
+  Y para demostrarlo, se puede utilizar una segunda inducción. Para $n = 0$, la desigualdad se cumple, ya que:
+  $$
+  \frac{1}{a_0} \cdot \frac{1}{a_1 - a_0} \leq \left(1 + \frac{1}{a_0}\right) \cdot \frac{1}{a_1} \iff a_0 \cdot (a_1 - a_0 - 1) \geq 0 \iff a_1 - a_0 \geq 1
+  $$
+
+  Y para $n + 1$ se tiene que:
+  $$
+  \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_{n + 1} - a_0}\right) \cdot \frac{1}{a_{n + 2} - a_0} \leq \left(1 + \frac{1}{a_0}\right) \cdots \left(1 + \frac{1}{a_{n + 1}}\right) \cdot \frac{1}{a_{n + 2}}
+  $$
+
+  Como la desigualdad se asume cierta para $n$, se ve, de manera análoga a la primera inducción, que:
+  \begin{multline*}
+    \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \left(1 + \frac{1}{a_{n + 1} - a_0}\right) \cdot \frac{1}{a_{n + 2} - a_0} \leq \\ \leq \left(1 + \frac{1}{a_0}\right) \cdots \left(1 + \frac{1}{a_n}\right) \left(1 + \frac{1}{a_{n + 1}}\right) \cdot \frac{1}{a_{n + 2}} \iff
+  \end{multline*}
+  \begin{multline*}
+    \iff \left[ \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \cdot \frac{1}{a_{n + 1} - a_0} \right] \cdot \frac{1}{a_{n + 2} - a_0} + \\ + \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \cdot \frac{1}{a_{n + 2} - a_0} \leq \\ \leq \left[ \left(1 + \frac{1}{a_0}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 1}} \right] \cdot \frac{1}{a_{n + 2}} + \\ + \left(1 + \frac{1}{a_0}\right) \left(1 + \frac{1}{a_1}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 2}}\iff
+  \end{multline*}
+  \begin{multline*}
+    \iff \left[ \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0} \right) \cdot \frac{1}{a_{n + 1} - a_0} \right] \cdot \frac{1}{a_{n + 2} - a_0} + \\ + \left[ \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0}\right) \cdot \frac{1}{a_{n + 1} - a_0} \right] \cdot \frac{a_{n + 1} - a_0}{a_{n + 2} - a_0} \leq \\ \leq \left[ \left(1 + \frac{1}{a_0}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 1}} \right] \cdot \frac{1}{a_{n + 2}} + \\ + \left[ \left(1 + \frac{1}{a_0}\right) \left(1 + \frac{1}{a_1}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 1}} \right] \cdot \frac{a_{n + 1}}{a_{n + 2}}\iff
+  \end{multline*}
+  \begin{multline*}
+    \iff \left[ \frac{1}{a_0} \left(1 + \frac{1}{a_1 - a_0}\right) \cdots \left(1 + \frac{1}{a_n - a_0} \right) \cdot \frac{1}{a_{n + 1} - a_0} \right] \cdot \frac{a_{n + 1} - a_0 + 1}{a_{n + 2} - a_0} \leq \\ \leq \left[ \left(1 + \frac{1}{a_0}\right) \cdots \left(1 + \frac{1}{a_n}\right) \cdot \frac{1}{a_{n + 1}} \right] \cdot \frac{a_{n + 1} + 1}{a_{n + 2}}
+  \end{multline*}
+
+  Como aparece la misma expresión utilizada en la hipótesis de esta segunda inducción, tiene que ocurrir que:
+  $$
+  \frac{a_{n + 1} - a_0 + 1}{a_{n + 2} - a_0} \leq \frac{a_{n + 1} + 1}{a_{n + 2}} \iff a_0 \cdot (a_{n + 2} - a_{n + 1}) \geq a_0 \iff a_{n + 2} - a_{n + 1} \geq 1
+  $$
+
+  Por tanto, esta segunda inducción demuestra la primera inducción, que a su vez prueba que la desigualdad del enunciado es cierta.
+
+\end{document}
