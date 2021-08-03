@@ -29,8 +29,8 @@
   Por un lado, se ve que
   \begin{equation*}
     \begin{split}
-      \prod_{n = 3}^k \frac{n^2}{n^2 - 4} & = 
-      \prod_{n = 3}^k \frac{n}{n - 2} \cdot \prod_{n = 3}^k \frac{n}{n + 2} \\ & = 
+      \prod_{n = 3}^k \frac{n^2}{n^2 - 4} & =
+      \prod_{n = 3}^k \frac{n}{n - 2} \cdot \prod_{n = 3}^k \frac{n}{n + 2} \\ & =
       \left(\frac{\cancel{3}}{1} \cdot \frac{\cancel{4}}{2} \cdot \frac{\cancel{5}}{\cancel{3}} \cdot \frac{\cancel{6}}{\cancel{4}} \cdots \frac{\cancel{k - 2}}{\cancel{k - 4}} \cdot \frac{k - 1}{\cancel{k - 3}} \cdot \frac{k}{\cancel{k - 2}} \right) \cdot \prod_{n = 3}^k \frac{n}{n + 2} \\ & =
       \frac{(k - 1) \cdot k}{1 \cdot 2} \cdot \left(\frac{3}{\cancel{5}} \cdot \frac{4}{\cancel{6}} \cdot \frac{\cancel{5}}{\cancel{7}} \cdot \frac{\cancel{6}}{\cancel{8}} \cdots \frac{\cancel{k - 2}}{\cancel{k}} \cdot \frac{\cancel{k - 1}}{k + 1} \cdot \frac{\cancel{k }}{k + 2} \right) \\ & =
       \frac{(k - 1) \cdot k}{1 \cdot 2} \cdot \frac{3 \cdot 4}{(k + 1) \cdot (k + 2)} \\ & =
@@ -41,7 +41,7 @@
   Y, por otro lado
   \begin{equation*}
     \begin{split}
-      \prod_{n = 3}^k \frac{A_n^2}{A_{n - 1} \cdot A_{n + 1}} & = 
+      \prod_{n = 3}^k \frac{A_n^2}{A_{n - 1} \cdot A_{n + 1}} & =
       \frac{A_3 \cdot \bcancel{A_3}}{A_2 \cdot \cancel{A_4}} \cdot \frac{\cancel{A_4} \cdot \bcancel{A_4}}{\bcancel{A_3} \cdot\cancel{A_5}} \cdot \frac{\cancel{A_5} \cdot \bcancel{A_5}}{\bcancel{A_4} \cdot \cancel{A_6}} \cdots \frac{\cancel{A_{k - 1}} \cdot \bcancel{A_{k - 1}}}{\bcancel{A_{k - 2}} \cdot \cancel{A_k}} \cdot \frac{\cancel{A_k} \cdot A_k}{\bcancel{A_{k - 1}} \cdot A_{k + 1}} \\ & =
       \frac{A_3}{A_2} \cdot \frac{A_k}{A_{k + 1}} = \frac{3^2 + 3}{3^2 - 2 \cdot 3 + 4} \cdot \frac{k^2 + 3}{k^2 + 2k + 4} \\ & =
       \frac{12}{7} \cdot \frac{k^2 + 3}{k^2 + 2k + 4}
