@@ -1,0 +1,17 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $f, g: \R \to \R$ funciones continuas tales que $g$ es diferenciable. Estas funciones satisfacen que $\left(f(0) - g'(0)\right) \cdot \left(g'(1) - f(1)\right) > 0$. Demuestra que existe un punto $c \in (0, 1)$ tal que $f(c) = g'(c)$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sea $h(x) = \displaystyle\int_0^x f(t) \dt - g(x)$. 
+
+  Se tiene que $h$ es una función continua. Y $h'(x) = f(x) - g'(x)$. Por el teorema de los valores intermedios para derivadas (propiedad de Darboux), $h'(x)$ toma todos los valores comprendidos entre $h'(0)$ y $h'(1)$.
+
+  La condición $\left(f(0) - g'(0)\right) \cdot \left(g'(1) - f(1)\right) > 0$ es equivalente a que $-h'(0) \cdot h'(1) > 0$. De esta condición se ve que $h'(0)$ y $h'(1)$ tienen signos opuestos, y por tanto, tiene que existir un punto $c \in (0, 1)$ tal que $h'(c) = 0$, es decir que $f(c) = g'(c)$.
+
+\end{document}
