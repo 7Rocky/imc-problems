@@ -1,0 +1,71 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+  Sea $(a_n)_{n = 0}^\infty$ una sucesión de números reales tal que $a_0 = 0$ y
+  $$
+  a_{n + 1}^3 = a_n^2 - 8 \quad \forall n = 0, 1, 2, ...
+  $$
+
+  Prueba que la siguiente serie es convergente:
+  $$
+  \sum_{n = 0}^\infty |a_{n + 1} - a_n|
+  $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Un criterio para averiguar la convergencia de una serie es el criterio del cociente:
+  $$
+  \sum_{n = 0}^\infty b_n \quad \text{es convergente} \iff \lim_{n \to \infty} \frac{b_{n + 1}}{b_n} < 1
+  $$
+
+  Utilizando la expresión de la sucesión $a_n$, se puede llegar a:
+  $$
+  a_{n + 1}^3 = a_n^2 - 8 \iff a_n^3 = a_{n - 1}^2 - 8 \Longrightarrow a_{n + 1}^3 - a_n^3 = a_n^2 - a_{n - 1}^2 = (a_n - a_{n - 1}) \, (a_n + a_{n - 1})
+  $$
+
+  Y, por otro lado:
+  $$
+  a_{n + 1}^3 - a_n^3 = (a_{n + 1} - a_n) \cdot (a_{n + 1}^2 + a_{n + 1} \cdot a_n + a_n^2)
+  $$
+
+  Con estas dos igualdades, se puede ver que:
+  $$
+  \frac{a_{n + 1} - a_n}{a_n - a_{n - 1}}
+  =
+  \frac{a_n + a_{n - 1}}{a_{n + 1}^2 + a_{n + 1} \cdot a_n + a_n^2}
+  $$
+
+  Y ahora, basta con aplicar límites y valor absoluto:
+  $$
+  \lim_{n \to \infty} \left| \frac{a_{n + 1} - a_n}{a_n - a_{n - 1}} \right|
+  =
+  \lim_{n \to \infty} \left| \frac{a_n + a_{n - 1}}{a_{n + 1}^2 + a_{n + 1} \cdot a_n + a_n^2} \right|
+  =
+  \left|\frac{2 \, a_\infty}{3 \, a_\infty^2}\right| = \frac{2}{3\,|a_\infty|}
+  $$
+
+  El término $a_\infty$ corresponde con el valor de la sucesión $a_n$ cuando $n \to \infty$:
+  $$
+  a_\infty^3 = a_\infty^2 - 8 \iff a_\infty^3 - a_\infty^2 + 8 = 0 \Longrightarrow p(x) = x^3 - x^2 + 8
+  $$
+
+  Utilizando el Teorema de Bolzano, se puede encontrar una raíz de $p(x)$ en el intervalo $[-3, -2]$, ya que $p(-2) = -4$ y $p(-1) = 6$, por lo que $\exists \, x_0 \in [-2, -1] \st p(x_0) = 0$.
+
+  Se sabe que $p'(x) = 3x^2 - 2x = 0 \iff x = \left\{0, \displaystyle\frac{2}{3}\right\} \Longrightarrow p(0), p\left(\displaystyle\frac{2}{3}\right) > 0$. Es decir, como el valor de $p(x)$ en los extremos relativos es estrictamente positivo, se puede concluir que solo existe una raíz real (la ya estimada), ya que $p(x \leq -2) < 0$ y $p(x \geq -1) > 0$.
+
+  Por consiguiente, $\exists \, \displaystyle\lim_{n \to \infty} a_n \in [-2, -1]$. Y si se elige $b_n = |a_n - a_{n - 1}|$, se puede demostrar que $\displaystyle\sum_{n = 1}^\infty b_n$ es convergente ya que:
+
+  \begin{equation*}
+    \begin{split}
+      \lim_{n \to \infty} \frac{b_{n + 1}}{b_n} & = \lim_{n \to \infty} \left| \frac{a_{n + 1} - a_n}{a_n - a_{n - 1}} \right| =
+      \lim_{n \to \infty} \left| \frac{a_n + a_{n - 1}}{a_{n + 1}^2 + a_{n + 1} \cdot a_n + a_n^2} \right| \\ & =
+      \frac{2}{3\,|a_\infty|} \in \left[\frac{1}{3}, \frac{2}{3}\right] < 1
+    \end{split}
+  \end{equation*}
+
+  Con lo cual, queda demostrada la convergencia de la serie $\displaystyle\sum_{n = 0}^\infty |a_{n + 1} - a_n|$.
+
+\end{document}
