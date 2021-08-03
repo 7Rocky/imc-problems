@@ -1,0 +1,35 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    \begin{itemize}
+      \item Una sucesión $x_1, x_2, \dots$ satisface que:
+      $$
+      x_{n + 1} = x_n \, \cos{x_n} \quad \forall n \geq 1
+      $$
+      ¿Se puede decir que esta sucesión converge para cualquier valor inicial de $x_1$?
+
+      \item Otra sucesión $y_1, y_2, \dots$ satisface que:
+      $$
+      y_{n + 1} = y_n \, \sen{y_n} \quad \forall n \geq 1
+      $$
+      ¿Se puede decir que esta sucesión converge para cualquier valor inicial de $y_1$?
+    \end{itemize}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  En primer lugar, se ve que $|x_1| \geq |x_2| \geq \dots \geq |x_n| \geq 0$, porque $0 \leq |\cos{\alpha}| \leq 1$ para todo $\alpha \in \R$. Con esto se demuestra que $x_n$ no puede ser divergente.
+
+  La única posibilidad de que la sucesión no sea convergente es que sea oscilante. Esto se da cuando $x_1 = -x_2 = \dots = (-1)^n \, x_{n - 1} = (-1)^{n + 1} \, x_n$. Y para que $x_1 = -x_2$, tiene que pasar que $x_2 = x_1 \cos{x_1} = -x_1 \iff \cos{x_1} = -1 \iff x_1 = (2k - 1) \pi$, con $k \in \mathbb{Z}$. Esto se debe a que $\cos{-\alpha} = \cos{\alpha}$.
+
+  Para el resto de valores, como $|x_n| \to 0$ cuando $n \to \infty$, aunque los términos tengan signos alternos, eventualmente la sucesión tenderá a ser nula.
+
+  Con la sucesión $y_n$ ocurre algo parecido: $|y_1| \geq |y_2| \geq \dots \geq |y_n| \geq 0$, ya que $0 \leq |\sen{\alpha}| \leq 1$.
+
+  La sucesión $y_n$ no puede ser oscilante, ya que se tendría que cumplir que $y_1 = -y_2 = \dots = (-1)^n \, y_{n - 1} = (-1)^{n + 1} \, y_n$. El caso $y_1 = -y_2$ se da cuando $y_1 = (4k - 1) \displaystyle\frac{\pi}{2}$. Pero como la función seno no es una función par, no se podrá cumplir esta hipótesis. De hecho, ocurriría que $y_1 = -y_2 = \dots = -y_{n - 1} = -y_n$.
+
+  Entonces, queda demostrado que existen valores de $x_1$ para los que la sucesion $x_n$ no es convergente. En cambio, la sucesión $y_n$ será siempre convergente.
+
+\end{document}
