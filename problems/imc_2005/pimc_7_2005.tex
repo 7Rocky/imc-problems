@@ -17,14 +17,15 @@
 
   Si $d \geq 1$, se tiene que $M = \varnothing$ y entonces $|M| = 0$, ya que $f(x) \geq 1$.
 
-  Si $-1 < d < 1$, entonces 
-  $$
-  |f(x)| < 1 \iff -1 < f(x) < 1 \iff -1 < \left(x + \displaystyle\frac{b}{2}\right)^2 + d < 1 \iff \left|x + \frac{b}{2}\right| < \sqrt{1 - d}
-  $$
+  Si $-1 < d < 1$, entonces
+  \begin{multline*}
+    |f(x)| < 1 \iff -1 < f(x) < 1 \iff -1 < \left(x + \displaystyle\frac{b}{2}\right)^2 + d < 1 \iff \\ \iff
+    \left|x + \frac{b}{2}\right| < \sqrt{1 - d}
+  \end{multline*}
 
   Se tiene $M = \left(-\frac{b}{2} - \sqrt{1 - d}, -\frac{b}{2} + \sqrt{1 - d}\right)$, luego $|M| = 2\sqrt{1 - d} < 2 \sqrt{1 - (-1)} = 2\sqrt{2}$.
 
-  Por último, si $d \leq 1$, se ve que 
+  Por último, si $d \leq 1$, se ve que
   $$
   -1 < \left(x + \displaystyle\frac{b}{2}\right)^2 + d < 1 \iff \sqrt{|d| - 1}\left|x + \frac{b}{2}\right| < \sqrt{|d| + 1}
   $$
