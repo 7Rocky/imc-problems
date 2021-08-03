@@ -17,17 +17,17 @@
   \textbf{Solución:}
 
   Utilizando algunas propiedades de la traza de dos matrices, como que $\tr{(XY)} = \tr{(YX)}$ y que $\tr{(X)} + \tr{(Y)} = \tr{(X + Y)}$, se tiene que la expresión a demostrar queda como:
-
   \begin{equation*}
     \begin{split}
-      \tr{(ABAB)} - \tr{(A^2 B^2)} & =
-      \frac{1}{2}\left(2 \, \tr{(ABAB)} - 2 \, \tr{(A^2 B^2)}\right) = \\ & =
-      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(ABAB)} - \tr{(AABB)} - \tr{(AABB)}\right) = \\ & =
-      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(A(BAB))} - \tr{(A(ABB))} - \tr{((AAB)B)}\right) = \\ & =
-      \frac{1}{2}\left(\tr{(ABAB)} + \tr{((BAB)A)} - \tr{((ABB)A)} - \tr{(B(AAB))}\right) = \\ & =
-      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(BABA)} - \tr{(ABBA)} - \tr{(BAAB)}\right) = \\ & =
-      \frac{1}{2}\tr{(ABAB + BABA - ABBA - BAAB)} = \\ & =
-      \frac{1}{2}\tr{((AB - BA)^2)}
+      &
+      \tr{(ABAB)} - \tr{(A^2 B^2)} = \\ & \qquad =
+      \frac{1}{2}\left(2 \, \tr{(ABAB)} - 2 \, \tr{(A^2 B^2)}\right) = \\ & \qquad =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(ABAB)} - \tr{(AABB)} - \tr{(AABB)}\right) = \\ & \qquad =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(A(BAB))} - \tr{(A(ABB))} - \tr{((AAB)B)}\right) = \\ & \qquad =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{((BAB)A)} - \tr{((ABB)A)} - \tr{(B(AAB))}\right) = \\ & \qquad =
+      \frac{1}{2}\left(\tr{(ABAB)} + \tr{(BABA)} - \tr{(ABBA)} - \tr{(BAAB)}\right) = \\ & \qquad =
+      \frac{1}{2}\tr{(ABAB + BABA - ABBA - BAAB)} = \\ & \qquad =
+      \frac{1}{2}\tr{((AB - BA)^2)\qquad }
     \end{split}
   \end{equation*}
 
@@ -36,7 +36,6 @@
   De la condición $\rank{(M)} = \rank{(AB - BA + I)} = 1$ se obtiene que o bien todos los autovalores de $M$ son nulos con multiplicidad $n - 1$, o bien existe un único autovalor no nulo (con multiplicidad $1$ y el resto de autovalores nulos con multiplicidad $n - 1$).
 
   Como ocurre que
-
   \begin{equation*}
     \begin{split}
       \tr{(M)} & =
@@ -55,7 +54,7 @@
   \tr{(N^2)} = 1 \cdot (n - 1) + (n - 1)^2 = n (n - 1)
   $$
 
-  Y por tanto, queda demostrado que 
+  Y por tanto, queda demostrado que
   $$
   \tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2}\tr{((AB - BA)^2)} = \frac{1}{2}\tr{(N^2)} = \frac{1}{2} n (n - 1)
   $$
