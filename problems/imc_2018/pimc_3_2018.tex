@@ -1,0 +1,79 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Determina todos los números racionales $a$ para los que la matriz $M$ es el cuadrado de una matriz con entradas racionales.
+    $$
+    M = \begin{pmatrix}
+      a & -a & -1 & 0 \\
+      a & -a & 0 & -1 \\
+      1 & 0 & a & -a \\
+      0 & 1 & a & -a
+    \end{pmatrix}
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Siendo $A = \begin{pmatrix}
+    a & -a \\
+    a & -a
+  \end{pmatrix}$ y la matriz identidad $I_2 = \begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+  \end{pmatrix}$, la matriz $M = \begin{pmatrix}
+    A & -I_2 \\
+    I_2 & A
+  \end{pmatrix}$. El polinomio característico de $M$ se puede calcular como:
+  \begin{equation*}
+    \begin{split}
+      P(\lambda) & = |M - \lambda I_4| =
+      \begin{vmatrix}
+        A - \lambda I_2 & -I_2 \\
+        I_2 & A - \lambda I_2
+      \end{vmatrix} =
+      \big|(A - \lambda I_2)^2 + I_2^2\big| =
+      \\ & =
+      \big|A^2 - 2\lambda A + (\lambda^2 + 1)I_2\big| =
+      \begin{vmatrix}
+        -2\lambda a + \lambda^2 + 1 & 2\lambda a \\
+        -2\lambda a & 2\lambda a + \lambda^2 + 1
+      \end{vmatrix}
+      = (\lambda^2 + 1)^2
+    \end{split}
+  \end{equation*}
+
+  Por el teorema de Cayley-Hamilton, se sabe que $P(M) = 0_4$. Ahora bien, se quiere demostrar que $M = R^2$, siendo $R$ una matriz con entradas racionales. Entonces $P(R^2) = 0_4$ también. Luego, la matriz $R$ es raíz del polinomio $P(\lambda^2) = (\lambda^4 + 1)^2$.
+
+  El polinomio mínimo de $R$ será el polinomio $\mu(\lambda)$ de menor grado que divida a $P(\lambda^2)$, que cumpla que $\mu(R) = 0_4$ y que los factores irreducibles de $P(\lambda^2)$ dividan a $\mu(\lambda)$. Por tanto, el polinomio mínimo de $R$ en el cuerpo de los racionales será $\mu(\lambda) = \lambda^4 + 1$, que coincide en este caso con su polinomio característico. Por este motivo, se ha de cumplir que $\mu(R) = 0_4$:
+
+  \begin{equation*}
+    \begin{split}
+      \mu(R) & = R^4 + I_4 = M^2 + I_4 =
+      \begin{pmatrix}
+        A & -I_2 \\
+        I_2 & A
+      \end{pmatrix}
+      ^2 + I_4 \\ & =
+      \begin{pmatrix}
+        A^2 - I_2 & -2 A \\
+        2 A & A^2 - I_2
+      \end{pmatrix}
+      + I_4 =
+      \begin{pmatrix}
+        A^2 & -2 A \\
+        2 A & A^2
+      \end{pmatrix}
+      \\ & =
+      \begin{pmatrix}
+        0 & 0 & -2a & 2a \\
+        0 & 0 & -2a & 2a \\
+        2a & -2a & 0 & 0 \\
+        2a & -2a & 0 & 0
+      \end{pmatrix}
+      = 0_4 \iff a = 0
+    \end{split}
+  \end{equation*}
+
+\end{document}
