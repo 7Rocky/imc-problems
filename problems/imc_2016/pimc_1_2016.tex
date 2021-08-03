@@ -1,0 +1,47 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $f: [a, b] \to \R$ una función continua en $[a, b]$ y derivable en $(a, b)$. Suponga que $f$ tiene infinitos ceros, pero no existe ningún $x \in (a, b)$ tal que $f(x) = f'(x) = 0$.
+
+    \begin{enumerate}[a)]
+      \item Probar que $f(a) \cdot f(b) = 0$.
+      \item Encontrar un ejemplo de una función con estas características en $[0, 1]$.
+    \end{enumerate}
+
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Como la función $f$ tiene infinitos ceros, se puede escoger una sucesión $z_n$, de tal manera que $f(z_n) = 0$ para todo $n \in \N$.
+
+  Por el teorema de Bolzano-Weierstrass, $z_n$ contiene una subsecuencia que es convergente, ya que $z_n$ está acotada entre $a$ y $b$.
+
+  Sea $c = \displaystyle\lim_{n \to \infty} z_n$. Tiene que ocurrir que $c = a$ o que $c = b$, de manera que $f(c) = f(a) = 0$, o bien $f(c) = f(b) = 0$, y así se cumpliría que $f(a) \cdot f(b) = 0$. Primeramente, se supone que $c \ne a, b$. Entonces:
+  $$
+  f'(c) = \displaystyle\lim_{x \to c} \displaystyle\frac{f(x) - f(c)}{x - c} = \displaystyle\lim_{n \to \infty} \displaystyle\frac{f(z_n) - f(c)}{z_n - c} = \displaystyle\lim_{n \to \infty} \displaystyle\frac{0 - 0}{z_n - c} = 0
+  $$
+
+  Esto lleva a una contradicción con el enunciado, porque no existe ningún $x \in (a, b)$ tal que $f(x) = f'(x) = 0$. Entonces queda demostrado que $c = a$, o bien $c = b$, y por consiguiente que $f(a) \cdot f(b) = 0$.
+
+  En el intervalo $[0, 1]$, una función con estas características puede ser:
+  $$
+  f(x) = \left\{
+    \begin{matrix}
+      x \, \sen{\left(\displaystyle\frac{1}{x}\right)} & \; \text{si } x > 0 \\
+      0 & \; \text{si } x = 0
+    \end{matrix}
+  \right .
+  $$
+
+  Esta función cumple que $f(0) \cdot f(1) = 0$, porque $f(0) = 0$. También tiene infinitos ceros en $(0, 1)$, ya que:
+  $$
+  f(x) = 0 \iff x \, \sen{\left(\frac{1}{x}\right)} = 0 \iff \frac{1}{x} = k\pi \iff x = \frac{1}{k\pi} \leq \frac{1}{\pi} < 1, \; k \in \N
+  $$
+
+  Y, por último, se tiene que $f'(x) = \sen{\left(\displaystyle\frac{1}{x}\right)} - \displaystyle\frac{1}{x} \cdot \cos{\left(\displaystyle\frac{1}{x}\right)}$
+
+  Como las funciones seno y coseno no se anulan a la vez en ningún punto, se verificará que no existe $x \in (0, 1)$ tal que $f(x) = f'(x) = 0$.
+
+\end{document}
