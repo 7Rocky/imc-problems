@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $A$ una matriz $n \times n$ tal que sus entradas $a_{ij} = i + j$, siendo $i$ y $j$ los índices de fila y columna, respectivamente. ¿Cuál es el rango de $A$?
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se puede escribir la matriz $A$ como
+  $$
+  \begin{pmatrix}
+    2 & 3 & \dots & n + 1 \\
+    3 & 4 & \dots & n + 2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    n + 1 & n + 2 & \dots & n + n
+  \end{pmatrix}
+  $$
+
+  Al restar la primera fila a todas las demás (excepto la primera fila), se obtiene una matriz con el mismo rango:
+  $$
+  \begin{pmatrix}
+    2 & 3 & \dots & n + 1 \\
+    1 & 1 & \dots & 1 \\
+    2 & 2 & \dots & 2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    n - 1 & n - 1 & \dots & n - 1
+  \end{pmatrix}
+  $$
+
+  Y esta matriz tiene varias filas que son proporcionales a la segunda fila, por lo que es equivalente a la matriz
+  $$
+  \begin{pmatrix}
+    2 & 3 & \dots & n + 1 \\
+    1 & 1 & \dots & 1 \\
+    0 & 0 & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & 0
+  \end{pmatrix}
+  $$
+
+  Esta última matriz tiene rango $2$, y como es equivalente a la matriz $A$, se demuestra que el rango de la matriz $A$ es $2$.
+
+\end{document}
