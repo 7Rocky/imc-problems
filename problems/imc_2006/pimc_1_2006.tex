@@ -1,0 +1,23 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $f: \R \to \R$ una función real. Demostrar si las siguientes afirmaciones son verdaderas o falsas:
+
+    \begin{enumerate}[a)]
+    \item Si $f$ es continua y también $\Image{(f)} = \R$, entonces $f$ es monótona.
+    \item Si $f$ es monótona y también $\Image{(f)} = \R$, entonces $f$ es continua.
+    \item Si $f$ es continua y monótona, entonces $\Image{(f)} = \R$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Para el caso a) es sencillo encontrar un contraejemplo. Una función polinómica de grado impar, como por ejemplo $f(x) = x^3 - x$, es continua, y también cumple que $\Image{(f)} = \R$; sin embargo, no es monótona, ya que $f'(x) = 3x^2 - 1 = 0 \iff x = \pm \displaystyle\frac{\sqrt{3}}{3}$, lo cual quiere decir que $f(x)$ es estrictamente decreciente para $x \in \left(-\displaystyle\frac{\sqrt{3}}{3}, \displaystyle\frac{\sqrt{3}}{3}\right)$, y creciente para el resto de valores de $x$. Y por tanto, no es monótona.
+
+  El caso b) es correcto, porque si $f$ es monótona, en el momento en que se quiera probar que $f$ no es continua, deberá haber una discontinuidad inevitable (de salto). Pero entonces ya no se cumpliría que $\Image{(f)} = \R$. Por tanto, el caso b) es cierto.
+
+  Para el caso c) también se puede hallar un contraejemplo. Por ejemplo, $f(x) = \e^x$ es una función continua y monótona, ya que $f'(x) = \e^x > 0, \forall x \in \R$. No obstante, como también $f(x) > 0$, se tiene que $\Image{(f)} = \R[+] \ne \R$.
+
+\end{document}
