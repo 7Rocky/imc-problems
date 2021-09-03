@@ -1,0 +1,17 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $f: \R \to \R$ be a function such that $(f(x))^n$ is a polynomial for every $n \geq 2$. Does it follow that $f$ is a polynomial?
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  The answer is: yes.
+
+  Let $\displaystyle\frac{f^3}{f^2} = \displaystyle\frac{p}{q}$ be an irreducible rational function with som polynomials $p$ and $q$. Then $\displaystyle\frac{p^2}{q^2}$ is also irreducible, and it is satisfied that $\displaystyle\frac{p^2}{q^2} = \left(\displaystyle\frac{f^3}{f^2}\right)^2 = f^2$. Since $f^2$ is a polynomial, then $q$ is constant (due to the fact that $q^2$ is constant too).
+
+  Hence, $f = \displaystyle\frac{f^3}{f^2} = \displaystyle\frac{p}{q}$ is a polynomial $p$ divided by a constant $q$, and then it is clear that $f$ is a polynomial.
+
+\end{document}
