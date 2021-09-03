@@ -1,0 +1,145 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $A$ una matriz real $n \times n$ tal que $A^3 = 0$.
+
+    \begin{enumerate}[(a)]
+      \item Prueba que existe una única matriz $X$ real $n \times n$ que satisface la ecuación
+      $$
+      X + A X + X A^2 = A
+      $$
+      \item Expresa $X$ en términos de $A$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Supóngase que existe una matriz $Y \ne X$ tal que $Y + A Y + Y A^2 = A$. Como $X$ también cumple la ecuación, se tiene que
+  $$
+  X + A X + X A^2 - (Y + A Y + Y A^2) = 0 \iff (X - Y) + A (X - Y) + (X - Y) A^2 = 0
+  $$
+
+  Sea $Z = X - Y$. Se sigue entonces que $Z \ne 0$ ya que $X \ne Y$. Entonces
+  \begin{equation*}
+    \begin{split}
+      Z + A Z + Z A^2 = 0 \Longrightarrow
+      A^2 (Z + A Z + Z A^2) A = 0 \\ \iff
+      A^2 Z A + A^3 Z A + A^2 Z A^3 = 0 \\ \iff
+      A^2 Z A = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      Z + A Z + Z A^2 = 0 \Longrightarrow
+      A (Z + A Z + Z A^2) A = 0 \\ \iff
+      A Z A + A^2 Z A + A Z A^3 = 0 \\ \iff
+      A Z A = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      Z + A Z + Z A^2 = 0 \Longrightarrow
+      (Z + A Z + Z A^2) A = 0 \\ \iff
+      Z A + A Z A + Z A^3 = 0 \\ \iff
+      Z A = 0 \Longrightarrow Z A^2 = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      Z + A Z + Z A^2 = 0 \Longrightarrow
+      A^2 (Z + A Z + Z A^2) = 0 \\ \iff
+      A^2 Z + A^3 Z + A^2 Z A^2 = 0 \\ \iff
+      A^2 Z = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      Z + A Z + Z A^2 = 0 \Longrightarrow
+      A (Z + A Z + Z A^2) = 0 \\ \iff
+      A Z + A^2 Z + A Z A^2 = 0 \\ \iff
+      A Z = 0
+    \end{split}
+  \end{equation*}
+
+  Entonces, hemos concluido que $A Z = 0$ y que $Z A^2 = 0$. Y por tanto
+  $$
+  Z + A Z + Z A^2 = 0 \iff Z = 0
+  $$
+
+  Contradicción. Entonces ocurre que $X = Y$, y por tanto, la matriz $X$ que cumple la ecuación es única.
+
+  Se puede seguir un procedimiento similar para hallar $X$:
+  \begin{equation*}
+    \begin{split}
+      X + A X + X A^2 = A \Longrightarrow
+      A^2 (X + A X + X A^2) A = A^4 = 0 \\ \iff
+      A^2 X A + A^3 X A + A^2 X A^3 = 0 \\ \iff
+      A^2 X A = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      X + A X + X A^2 = A \Longrightarrow
+      A (X + A X + X A^2) A = A^3 = 0 \\ \iff
+      A X A + A^2 X A + A X A^3 = 0 \\ \iff
+      A X A = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      X + A X + X A^2 = A \Longrightarrow
+      (X + A X + X A^2) A = A^2 \\ \iff
+      X A + A X A + X A^3 = A^2 \\ \iff
+      X A = A^2 \Longrightarrow X A^2 = A^3 = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      X + A X + X A^2 = A \Longrightarrow
+      A^2 (X + A X + X A^2) = A^3 = 0 \\ \iff
+      A^2 X + A^3 X + A^2 X A^2 = 0 \\ \iff
+      A^2 X = 0
+    \end{split}
+  \end{equation*}
+  \begin{equation*}
+    \begin{split}
+      X + A X + X A^2 = A \Longrightarrow
+      A (X + A X + X A^2) = A^2 \\ \iff
+      A X + A^2 X + A X A^2 = A^2 \\ \iff
+      A X = A^2
+    \end{split}
+  \end{equation*}
+
+  Y así, $A X = A^2$ y $X A^2 = 0$, por lo que
+  $$
+  X + A X + X A^2 = A \Longrightarrow X + A^2 = A \Longrightarrow X = A - A^2
+  $$
+
+  Otra manera de verlo es definir $X = a I + b A + c A^2$, con $a, b, c \in \R$. De manera que
+  \begin{equation*}
+    \begin{split}
+      X + A X + X A^2 & =
+      a I + b A + c A^2 + a A + b A^2 + c A^3 + a A^2 + b A^3 + c A^4 = \\ & =
+      a I + b A + c A^2 + a A + b A^2 + a A^2 = \\ & =
+      a I + (a + b) A + (a + b + c) A^2 = \\ & = A \iff
+      \left \{
+        \begin{matrix}
+          a &   &   &   &   & = & 0 \\
+          a & + & b &   &   & = & 1 \\
+          a & + & b & + & c & = & 0 \\
+        \end{matrix}
+      \right . \iff \left \{
+        \begin{matrix}
+          a & = &  0 \\
+          b & = &  1 \\
+          c & = & -1 \\
+        \end{matrix}
+      \right .
+    \end{split}
+  \end{equation*}
+
+  Y finalmente queda que $X = A - A^2$.
+
+\end{document}
