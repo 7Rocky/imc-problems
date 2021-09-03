@@ -1,0 +1,37 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $0 < a < b$. Prove that:
+    $$
+    \int_a^b (x^2 + 1) \, \e^{-x^2} \dx \geq \e^{-a^2} - \e^{-b^2}
+    $$
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  It is easy to see that:
+  $$
+  \int_{a^2}^{b^2} \e^{-t} \dt = \e^{-a^2} - \e^{-b^2}
+  $$
+
+  Doing this change of variable $t = x^2$:
+  $$
+  \int_a^b (x^2 + 1) \, \e^{-x^2} \dx = \int_{a^2}^{b^2} (t + 1) \, \e^{-t} \, \frac{\text{d}t}{2 \sqrt{t}}
+  $$
+
+  Then:
+  \begin{equation*}
+    \begin{split}
+      \int_a^b (x^2 + 1) \, \e^{-x^2} \dx \geq \e^{-a^2} - \e^{-b^2} & \iff
+      \int_{a^2}^{b^2} (t + 1) \, \e^{-t} \, \frac{\text{d}t}{2 \sqrt{t}} \geq \int_{a^2}^{b^2} \e^{-t} \dt \\ & \iff
+      \frac{t + 1}{2 \sqrt{t}} \geq 1 \\ & \iff
+      \frac{t^2 + 2t + 1}{4t} \geq 1 \\ & \iff
+      (t - 1)^2 \geq 0
+    \end{split}
+  \end{equation*}
+
+  Since the previous condition is satisfied for all $t \in \R$, the required inequality is proven.
+
+\end{document}
