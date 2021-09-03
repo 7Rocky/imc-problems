@@ -1,0 +1,56 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $(a_n)_{n = 1}^\infty$ and $(b_n)_{n = 1}^\infty$ be two sequences of positive numbers. Show that the following statements are equivalent:
+
+    \begin{enumerate}[(1)]
+      \item There is a sequencen $(c_n)_{n = 1}^\infty$ of positive numbers such that $\displaystyle\sum_{n = 1}^\infty \frac{a_n}{c_n}$ and $\displaystyle\sum_{n = 1}^\infty \frac{c_n}{b_n}$ both converge.
+      \item $\displaystyle\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}$ converges.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  We have an ``if and only if'', that is, we need to prove both statements:
+
+  (1) $\Longleftarrow$ (2):
+
+  The radical expresion of (2) could be rewritten as:
+  $$
+  \sqrt{\frac{a_n}{b_n}} = \sqrt{\frac{a_n}{b_n}} \cdot \sqrt{\frac{a_n}{a_n}} = \frac{a_n}{\sqrt{a_n \cdot b_n}} = \frac{a_n}{c_n}
+  $$
+  $$
+  \sqrt{\frac{a_n}{b_n}} = \sqrt{\frac{a_n}{b_n}} \cdot \sqrt{\frac{b_n}{b_n}} = \frac{\sqrt{a_n \cdot b_n}}{b_n} = \frac{c_n}{b_n}
+  $$
+
+  If we choose $c_n = \sqrt{a_n \cdot b_n}$, and knowing that $\displaystyle\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}$ converges, then $\displaystyle\sum_{n = 1}^\infty \frac{a_n}{c_n}$ and $\displaystyle\sum_{n = 1}^\infty \frac{c_n}{b_n}$ also converge; and therefore $(c_n)_{n = 1}^\infty$ both sums converegent.
+
+  (1) $\Longrightarrow$ (2):
+
+  Using the Cauchy-Schwarz inequality:
+  $$
+  \left(\sum _{k = 1}^n \alpha_k \cdot \beta_k\right)^2 \leq \left(\sum _{k = 1}^n \alpha_k^2\right)\left(\sum _{k=1}^n \beta_k^2\right)
+  $$
+
+  And setting $\alpha_k = \displaystyle\sqrt{\frac{a_k}{c_k}}$ y $\beta_k = \displaystyle\sqrt{\frac{c_k}{b_k}}$, we obtain that
+  \begin{equation*}
+    \begin{split}
+      & 0 < \left(\sum_{n = 1}^\infty \sqrt{\frac{a_n}{c_n}} \cdot \sqrt{\frac{c_n}{b_n}}\right)^2 \leq \left(\sum_{n = 1}^\infty \left(\sqrt{\frac{a_n}{c_n}}\right)^2\right)
+      \cdot
+      \left(\sum_{n = 1}^\infty \left(\sqrt{\frac{c_n}{b_n}}\right)^2\right) \\ \iff &
+      0 < \left(\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}\right)^2 \leq \left(\sum_{n = 1}^\infty \frac{a_n}{c_n}\right)
+      \cdot
+      \left(\sum_{n = 1}^\infty \frac{c_n}{b_n}\right) \\ \iff &
+      0 < \sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}} \leq \sqrt{\left(\sum_{n = 1}^\infty \frac{a_n}{c_n}\right)
+      \cdot
+      \left(\sum_{n = 1}^\infty \frac{c_n}{b_n}\right)}
+    \end{split}
+  \end{equation*}
+
+  Since the series $\displaystyle\sum_{n = 1}^\infty \sqrt{\frac{a_n}{b_n}}$ is bounded froom above by a finite value (and also from below, because it is a sequence of positive numbers), it is proven that the series converges. \\
+
+  And finally, it is demonstrated that (1) $\iff$ (2).
+
+\end{document}
