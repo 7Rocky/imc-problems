@@ -1,0 +1,26 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    \begin{enumerate}[a)]
+      \item Show that for any $m \in \N$ there exists a real $m \times m$ matrix $A$ such that $A^3 = A + I$, where $I$ is the $m \times m$ identity matrix.
+      \item Show that $\det{(A)} > 0$ for every real $m \times m$ matrices satisfying $A^3 = A + I$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  The first statement is easy to prove, because we can consider a diagonal matrix whose entries are roots of the polynomial $p(\lambda) = \lambda^3 - \lambda - 1$. Since this polynomial has an odd degree, it must have at least a real solution, because all complex roots are conjugated pairs.
+
+  Let $\lambda_1 \st p(\lambda_1) = 0$, then the matrix $A = \lambda_1 I$ satisfies that $A^3 = A + I$ for all $m \in \mathbb{N}$.
+
+  To prove the second statement, we can use the fact that the determinant of $A$ equals the product of its eigenvalues. Moreover, all possible eigenvalues of $A$ are roots of $p(\lambda)$.
+
+  We can compute the maximums and minimums of the polynomial, so that $p'(x) = 3x^2 - 1 = 0 \iff x = \pm \displaystyle\frac{1}{\sqrt{3}}$, being $x = -\displaystyle\frac{1}{\sqrt{3}}$ the relative maximum and $x = \displaystyle\frac{1}{\sqrt{3}}$ the relative minimum. It happens that $p\left(-\displaystyle\frac{1}{\sqrt{3}}\right) < 0$ y $p\left(\displaystyle\frac{1}{\sqrt{3}}\right) < 0$, so $p(\lambda)$ has a unique real root ($\lambda_1$) and two complex solutions ($\lambda_2$ and $\lambda_3$).
+
+  Using Bolzano's theorem, we can bound $\lambda_1$ and get that $\lambda_1 \in (1, 2)$, due to the fact that $p(1) = -1 < 0$ y $p(2) = 5 > 0$. Then $\lambda_1 > 0$.
+
+  On the other hand, let $\lambda_2 = r \, \e^{\i\phi}$ y $\lambda_3 = r \, \e^{-\i\phi}$ be the complex roots of $p(\lambda)$. Hence, $\det{(A)} = \lambda_1^\alpha \cdot (\lambda_2 \, \lambda_3)^\beta$, being $\alpha$ and $\beta$ the multiplicity of the eigenvalues. It happens that $\lambda_1^\alpha > 0$ due to $\lambda_1 > 0$. An furthermore, $(\lambda_2 \, \lambda_3)^\beta = \left(r \, \e^{\i\phi} \cdot r \, \e^{-\i\phi} \right)^\beta = \left(r^2\right)^\beta = \left(r^\beta\right)^2 > 0$. Since all factors are strictly positive, it follows that $\det{(A)} > 0$.
+
+\end{document}
