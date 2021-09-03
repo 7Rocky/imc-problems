@@ -1,0 +1,28 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Suppose that in a not necessarily commutative ring $R$ the square of any element is $0$. Prove that $abc + abc = 0$ for any three elements $a, b, c$.
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  Initially it can be seen that $(a + b)^2 = 0$, then $(a + b)^2 = a^2 + ab + ba + b^2 = ab + ba = 0$, where it follows that $ab = - (ba)$.
+
+  Once having this, then
+  \begin{equation*}
+    \begin{split}
+      abc & = a (bc) \\ & =
+      - ((bc) a) \\ & =
+      - (b (ca)) \\ & =
+      (ca) b \\ & =
+      c (ab) \\ & =
+      - ((ab) c) \\ & =
+      - abc
+    \end{split}
+  \end{equation*}
+
+  And therefore, $abc + abc = 0$.
+
+\end{document}
