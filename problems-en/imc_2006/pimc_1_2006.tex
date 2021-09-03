@@ -1,0 +1,23 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $f: \R \to \R$ be a real function. Prove or disprove each of the following statements:
+
+    \begin{enumerate}[a)]
+      \item If $f$ is continuous and $\Image{(f)} = \R$ then $f$ is monotonic.
+      \item If $f$ is monotonic and $\Image{(f)} = \R$ then $f$ is continuous.
+      \item If $f$ is monotonic and $f$ is continuous then $\Image{(f)} = \R$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  It is easy to find a counter-example for case a). A polynomial of odd degree, such as $f(x) = x^3 - x$, is continuous and also satisfies that $\Image{(f)} = \R$. However, it is not monotonic since $f'(x) = 3x^2 - 1 = 0 \iff x = \pm \displaystyle\frac{\sqrt{3}}{3}$, which implies that $f(x)$ is strictly decreasing for $x \in \left(-\displaystyle\frac{\sqrt{3}}{3}, \displaystyle\frac{\sqrt{3}}{3}\right)$ and increasing for the rest of values of $x$. Therefore, it is not monotonic.
+
+  Statement b) is true because if $f$ is monotonic, when trying to prove that $f$ is not continuous, then there should be an essential discontinuity. But this fact contradicts that $\Image{(f)} = \R$. Hence, case b) is correct.
+
+  Again, it is easy to find a counter-example for case c). For instance, $f(x) = \e^x$ is a continuous and monotonic function, since $f'(x) = \e^x > 0, \forall x \in \R$. Nevertheless, $f(x) > 0$, and thus $\Image{(f)} = \R[+] \ne \R$.
+
+\end{document}
