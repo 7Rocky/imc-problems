@@ -1,0 +1,60 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Evaluate the product
+    $$
+    \prod_{n = 3}^\infty \frac{(n^3 + 3n)^2}{n^6 - 64}
+    $$
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  First, we can see that
+  $$
+  \frac{(n^3 + 3n)^2}{n^6 - 64} = \frac{n^2}{n^2 - 4} \cdot \frac{(n^2 + 3)^2}{(n^2 - 2n + 4) \cdot (n^2 + 2n + 4)}
+  $$
+
+  Let $A_n = n^2 + 3$, it follows that
+  $$
+  A_{n + 1} = (n + 1)^2 + 3 = n^2 + 2n + 4
+  $$
+  $$
+  A_{n - 1} = (n - 1)^2 + 3 = n^2 - 2n + 4
+  $$
+
+  Let $P_k = \displaystyle\prod_{n = 3}^k \displaystyle\frac{(n^3 + 3n)^2}{n^6 - 64} = \displaystyle\prod_{n = 3}^k \left(\displaystyle\frac{n^2}{n^2 - 4} \cdot \displaystyle\frac{A_n^2}{A_{n - 1} \cdot A_{n + 1}}\right) = \displaystyle\prod_{n = 3}^k \displaystyle\frac{n^2}{n^2 - 4} \cdot \displaystyle\prod_{n = 3}^k \displaystyle\frac{A_n^2}{A_{n - 1} \cdot A_{n + 1}}$.
+
+  On the one hand, it can be seen that
+  \begin{equation*}
+    \begin{split}
+      \prod_{n = 3}^k \frac{n^2}{n^2 - 4} & =
+      \prod_{n = 3}^k \frac{n}{n - 2} \cdot \prod_{n = 3}^k \frac{n}{n + 2} \\ & =
+      \left(\frac{\cancel{3}}{1} \cdot \frac{\cancel{4}}{2} \cdot \frac{\cancel{5}}{\cancel{3}} \cdot \frac{\cancel{6}}{\cancel{4}} \cdots \frac{\cancel{k - 2}}{\cancel{k - 4}} \cdot \frac{k - 1}{\cancel{k - 3}} \cdot \frac{k}{\cancel{k - 2}} \right) \cdot \prod_{n = 3}^k \frac{n}{n + 2} \\ & =
+      \frac{(k - 1) \cdot k}{1 \cdot 2} \cdot \left(\frac{3}{\cancel{5}} \cdot \frac{4}{\cancel{6}} \cdot \frac{\cancel{5}}{\cancel{7}} \cdot \frac{\cancel{6}}{\cancel{8}} \cdots \frac{\cancel{k - 2}}{\cancel{k}} \cdot \frac{\cancel{k - 1}}{k + 1} \cdot \frac{\cancel{k }}{k + 2} \right) \\ & =
+      \frac{(k - 1) \cdot k}{1 \cdot 2} \cdot \frac{3 \cdot 4}{(k + 1) \cdot (k + 2)} \\ & =
+      6 \cdot \frac{k^2 - k}{k^2 + 3k + 2}
+    \end{split}
+  \end{equation*}
+
+  And on the other hand
+  \begin{equation*}
+    \begin{split}
+      \prod_{n = 3}^k \frac{A_n^2}{A_{n - 1} \cdot A_{n + 1}} & =
+      \frac{A_3 \cdot \bcancel{A_3}}{A_2 \cdot \cancel{A_4}} \cdot \frac{\cancel{A_4} \cdot \bcancel{A_4}}{\bcancel{A_3} \cdot\cancel{A_5}} \cdot \frac{\cancel{A_5} \cdot \bcancel{A_5}}{\bcancel{A_4} \cdot \cancel{A_6}} \cdots \frac{\cancel{A_{k - 1}} \cdot \bcancel{A_{k - 1}}}{\bcancel{A_{k - 2}} \cdot \cancel{A_k}} \cdot \frac{\cancel{A_k} \cdot A_k}{\bcancel{A_{k - 1}} \cdot A_{k + 1}} \\ & =
+      \frac{A_3}{A_2} \cdot \frac{A_k}{A_{k + 1}} = \frac{3^2 + 3}{3^2 - 2 \cdot 3 + 4} \cdot \frac{k^2 + 3}{k^2 + 2k + 4} \\ & =
+      \frac{12}{7} \cdot \frac{k^2 + 3}{k^2 + 2k + 4}
+    \end{split}
+  \end{equation*}
+
+  Then, $P_k = 6 \cdot \displaystyle\frac{k^2 - k}{k^2 + 3k + 2} \cdot \displaystyle\frac{12}{7} \cdot \displaystyle\frac{k^2 + 3}{k^2 + 2k + 4} = \displaystyle\frac{72}{7} \cdot \displaystyle\frac{k^2 - k}{k^2 + 3k + 2} \cdot \displaystyle\frac{k^2 + 3}{k^2 + 2k + 4}$.
+
+  And it follows $\displaystyle\lim_{k \to \infty} P_k = \displaystyle\lim_{k \to \infty} \left(\displaystyle\frac{72}{7} \cdot \displaystyle\frac{k^2 - k}{k^2 + 3k + 2} \cdot \displaystyle\frac{k^2 + 3}{k^2 + 2k + 4}\right) = \displaystyle\frac{72}{7}$.
+
+  Finally:
+  $$
+  \prod_{n = 3}^\infty \frac{(n^3 + 3n)^2}{n^6 - 64} = \frac{72}{7}
+  $$
+
+\end{document}
