@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $A$ be the $n \times n$ matrix whose $(i, j)^\text{th}$ entry is $i + j$ for all $i, j = 1, 2, \dots, n$. What is the rank of $A$?
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  The matrix $A$ can be rewritten as
+  $$
+  \begin{pmatrix}
+    2 & 3 & \dots & n + 1 \\
+    3 & 4 & \dots & n + 2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    n + 1 & n + 2 & \dots & n + n
+  \end{pmatrix}
+  $$
+
+  Substracting the first row from the rest, we obtain another matrix but with the same rank:
+  $$
+  \begin{pmatrix}
+    2 & 3 & \dots & n + 1 \\
+    1 & 1 & \dots & 1 \\
+    2 & 2 & \dots & 2 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    n - 1 & n - 1 & \dots & n - 1
+  \end{pmatrix}
+  $$
+
+  And this matrix has several rows that are proportional to the second row, so it is equivalent to the matrix
+  $$
+  \begin{pmatrix}
+    2 & 3 & \dots & n + 1 \\
+    1 & 1 & \dots & 1 \\
+    0 & 0 & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & 0
+  \end{pmatrix}
+  $$
+
+  And this last matrix has rank equal to $2$. Since it is equivalent to matrix $A$, then the rank of $A$ is also $2$.
+
+\end{document}
