@@ -1,0 +1,31 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $f: [0, \infty) \longrightarrow \R$ be a continuous function such that $\displaystyle\lim_{x \to \infty} f(x) = L$ exists (it may be finite or infinite). Prove that
+    $$
+    \lim_{n \to \infty} \int_0^1 f(nx) \dx = L
+    $$
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  By doing a change of variable, we obtain the following:
+  $$
+  \left .
+    \begin{matrix}
+      t = nx \\
+      \dt = n \dx
+    \end{matrix}
+  \right \}
+  \Longrightarrow
+  \int_0^1 f(nx) \dx = \frac{1}{n} \cdot \int_0^n f(t) \dt
+  $$
+
+  And using L'Hôpital's Rule, the result is proven:
+  $$
+  \lim_{n \to \infty} \int_0^1 f(nx) \dx = \lim_{n \to \infty} \frac{1}{n} \cdot \int_0^n f(t) \dt = \lim_{n \to \infty} \frac{\displaystyle\frac{\mathrm{d}}{\mathrm{d}n}\bigg(\displaystyle\int_0^n f(t) \dt\bigg)}{\displaystyle\frac{\mathrm{d}}{\mathrm{d}n}(n)} = \lim_{n \to \infty} f(n) = L
+  $$
+
+\end{document}
