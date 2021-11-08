@@ -3,20 +3,20 @@
 \begin{document}
 
   \begin{shaded}
-    Sean $A$ y $B$ matrices reales $n \times n$ tales que
+    Let $A$ and $B$ be $n \times n$ real matrices such that
     $$
     \rank{(AB - BA + I)} = 1
     $$
 
-    donde $I$ es la matriz identidad $n \times n$. Prueba que
+    where $I$ is the $n \times n$ identity matrix. Prove that
     $$
     \tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2} n (n - 1)
     $$
   \end{shaded}
 
-  \textbf{Solución:}
+  \textbf{Solution:}
 
-  Utilizando algunas propiedades de la traza del producto de dos matrices, como que $\tr{(XY)} = \tr{(YX)}$ y que $\tr{(X)} + \tr{(Y)} = \tr{(X + Y)}$, se tiene que la expresión a demostrar queda como:
+  Using some properties of the trace of the product of two matrices, for instance $\tr{(XY)} = \tr{(YX)}$ and $\tr{(X)} + \tr{(Y)} = \tr{(X + Y)}$, the expression to be proven is the same as:
   \begin{equation*}
     \begin{split}
       &
@@ -31,11 +31,11 @@
     \end{split}
   \end{equation*}
 
-  Sean $M = AB - BA + I$ y $N = M - I = AB - BA$.
+  Let $M = AB - BA + I$ and $N = M - I = AB - BA$.
 
-  De la condición $\rank{(M)} = \rank{(AB - BA + I)} = 1$ se obtiene que o bien todos los autovalores de $M$ son nulos con multiplicidad $n - 1$, o bien existe un único autovalor no nulo (con multiplicidad $1$ y el resto de autovalores nulos con multiplicidad $n - 1$).
+  From the condition $\rank{(M)} = \rank{(AB - BA + I)} = 1$, it is obtained that all eigenvalues of $M$ are zero with multiplicity $n - 1$, or there exists a unique eigenvalue that is non-zero (with multiplicity $1$ and the rest are null eigenvalues with multiplicity $n - 1$).
 
-  Como ocurre que
+  As it happens that
   \begin{equation*}
     \begin{split}
       \tr{(M)} & =
@@ -45,16 +45,16 @@
     \end{split}
   \end{equation*}
 
-  se tiene que $M$ tiene un único autovalor no nulo con valor $n$ y el resto de autovalores son nulos. Por tanto, el espectro de $M$ es $\sigma(M) = \{0, n\}$.
+  then $M$ has a unique non-zero eigenvalue with value $n$, and the rest are null eigenvalues. Hence, the spectrum of the matrix $M$ is $\sigma(M) = \{0, n\}$.
 
-  Como $N = M - I$, el espectro de $N$ es $\sigma(N) = \{-1, n - 1\}$, y el espectro de $N^2$ es $\sigma(N^2) = \{1, (n - 1)^2\}$.
+  Since $N = M - I$, the spectrum of $N$ is $\sigma(N) = \{-1, n - 1\}$, and the spectrum of $N^2$ is $\sigma(N^2) = \{1, (n - 1)^2\}$.
 
-  Nótese que $\tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2}\tr{((AB - BA)^2)} = \frac{1}{2}\tr{(N^2)}$. Y se sabe que la traza de $N^2$ es la suma de sus autovalores, por tanto:
+  Notice that $\tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2}\tr{((AB - BA)^2)} = \frac{1}{2}\tr{(N^2)}$. Ant it is known that the trace of $N^2$ is the sum of its eigenvalues, namely:
   $$
   \tr{(N^2)} = 1 \cdot (n - 1) + (n - 1)^2 = n (n - 1)
   $$
 
-  Y por tanto, queda demostrado que
+  An hence, it is proven that:
   $$
   \tr{(ABAB)} - \tr{(A^2 B^2)} = \frac{1}{2}\tr{((AB - BA)^2)} = \frac{1}{2}\tr{(N^2)} = \frac{1}{2} n (n - 1)
   $$
