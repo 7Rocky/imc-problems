@@ -1,0 +1,39 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $A$ y $B$ dos matrices cuadradas complejas del mismo tamaño tales que $\rank{(A B - B A)} = 1$. Demuestra que $(A B - B A)^2 = 0$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sea $M = A B - B A$, y sea $J$ la forma canónica de Jordan de la matriz $M$. Entonces, se cumple que $\rank{(M)} = \rank{(J)} = 1$. Esto implica que o bien todos los autovalores de $M$ son nulos, excepto uno; o bien que todos los autovalores son nulos, pero con $\dim{(\ker{(M)})} = n - 1$, siendo $n$ el orden de las matrices $A$ y $B$. Estas dos alternativas son:
+
+  $$
+  J = \left(
+    \begin{matrix}
+      \lambda &   &        &   \\
+              & 0 &        &   \\
+              &   & \ddots &   \\
+              &   &        & 0
+    \end{matrix}
+  \right)
+  \quad
+  \text{ó}
+  \quad
+  \left(
+    \begin{matrix}
+      0 &   &        &   \\
+      1 & 0 &        &   \\
+        &   & \ddots &   \\
+        &   &        & 0
+    \end{matrix}
+  \right)
+  $$
+
+  Se ve fácilmente que la primera opción no es válida porque $\tr{(M)} = \tr{(J)} = \lambda \ne 0$. Como $\tr{(A B)} = \tr{(B A)}$, entonces $\tr{(M)} = \tr{(A B - B A)} = \tr{(A B)} - \tr{(B A)} = 0$.
+
+  Por tanto, la única opción es la segunda. Se verifica que $J^2 = 0$, ya que $J$ tiene una submatriz $2 \times 2$ que es nilpotente. Y con esto queda demostrado que para cualesquiera matrices complejas $A$ y $B$ que cumplan que $\rank{(A B - B A)} = 1$, se cumplirá también que $(A B - B A)^2 = 0$.
+
+\end{document}

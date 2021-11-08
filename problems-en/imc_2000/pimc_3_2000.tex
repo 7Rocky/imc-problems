@@ -1,0 +1,38 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+  \begin{shaded}
+    $A$ and $B$ are square complex matrices of the same size and $\rank{(A B - B A)} = 1$. Show that $(A B - B A)^2 = 0$.
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  Let $M = A B - B A$, and let $J$ be the Jordan normal form of matrix $M$. Then, $\rank{(M)} = \rank{(J)} = 1$. This implies that all eigenvalues of $M$ are zero except for one; or all eigenvalues of $M$ are zero but having $\dim{(\ker{(M)})} = n - 1$, with $n$ being the order of matrices $A$ and $B$. These alternatives are:
+
+  $$
+  J = \left(
+    \begin{matrix}
+      \lambda &   &        &   \\
+              & 0 &        &   \\
+              &   & \ddots &   \\
+              &   &        & 0
+    \end{matrix}
+  \right)
+  \quad
+  \text{or}
+  \quad
+  \left(
+    \begin{matrix}
+      0 &   &        &   \\
+      1 & 0 &        &   \\
+        &   & \ddots &   \\
+        &   &        & 0
+    \end{matrix}
+  \right)
+  $$
+
+  It can be easily seen that the first option is not valid, because $\tr{(M)} = \tr{(J)} = \lambda \ne 0$. Since $\tr{(A B)} = \tr{(B A)}$, then $\tr{(M)} = \tr{(A B - B A)} = \tr{(A B)} - \tr{(B A)} = 0$.
+
+  Hence, the only option is the second one. It is satisfied that $J^2 = 0$, because $J$ contains a $2 \times 2$ submatrix that is nilpotent. As a result, it has been proved that for any complex matrices $A$ and $B$ with $\rank{(A B - B A)} = 1$, then $(A B - B A)^2 = 0$.
+
+\end{document}
