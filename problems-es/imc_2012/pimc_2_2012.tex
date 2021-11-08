@@ -1,0 +1,113 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $n$ un número natural. Determina el mínimo rango posible de una matrix $n \times n$ que tiene ceros en todas las posiciones la diagonal principal y números positivos en las demás posiciones.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Para $n = 1$ la única matriz posible es $A_1 = \begin{pmatrix} 0 \end{pmatrix}$, cuyo rango es $\rank{(A_1)} = 0$. Para $n = 2$, se tienen matrices de estilo de
+  $$
+  A_2 = \begin{pmatrix} 0 & m \\ n & 0 \end{pmatrix}, m, n > 0 \Longrightarrow |A_2| = -m n \ne 0 \Longrightarrow \rank{(A_2)} = 2
+  $$
+
+  Para $n \geq 3$ se puede ver que la matriz
+  \begin{equation*}
+    \begin{split}
+      A_n & = \begin{pmatrix}
+        0^2 & 1^2 & \dots & (n - 1)^2 \\
+        (-1)^2 & 0^2 & \dots & (n - 2)^2 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        (1 - n)^2 & (2 - n)^2 & \dots & 0^2
+      \end{pmatrix} =
+      \begin{pmatrix} (i - j)^2 \end{pmatrix}_{i, j = 1}^n =
+      \begin{pmatrix} i^2 - 2ij + j^2 \end{pmatrix}_{i, j = 1}^n
+      = \\ & =
+      \begin{pmatrix}
+        1^2 & 1^2 & \dots & 1^2 \\
+        2^2 & 2^2 & \dots & 2^2 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        n^2 & n^2 & \dots & n^2
+      \end{pmatrix} -
+      2 \cdot \begin{pmatrix}
+        1 \cdot 1 & 1 \cdot 2 & \dots & 1 \cdot n \\
+        2 \cdot 1 & 2 \cdot 2 & \dots & 2 \cdot n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        n \cdot 1 & n \cdot 2 & \dots & n \cdot n
+      \end{pmatrix} +
+      \begin{pmatrix}
+        1^2 & 2^2 & \dots & n^2 \\
+        1^2 & 2^2 & \dots & n^2 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        1^2 & 2^2 & \dots & n^2
+      \end{pmatrix}
+      = \\ & =
+      \begin{pmatrix}
+        1^2 & 1^2 & \dots & 1^2 \\
+        4 & 4 & \dots & 4 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        n^2 & n^2 & \dots & n^2
+      \end{pmatrix} -
+      \begin{pmatrix}
+        2 & 4 & \dots & 2n \\
+        4 & 8 & \dots & 4n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        2n & 4n & \dots & 2n^2
+      \end{pmatrix} +
+      \begin{pmatrix}
+        1 & 4 & \dots & n^2 \\
+        1 & 4 & \dots & n^2 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        1 & 4 & \dots & n^2
+      \end{pmatrix}
+    \end{split}
+  \end{equation*}
+
+  Y entonces el rango mínimo posible de $A_n$ es
+  \begin{equation*}
+    \begin{split}
+      \rank{(A_n)} & =
+      \rank{\left(\begin{pmatrix}
+        1^2 & 1^2 & \dots & 1^2 \\
+        4 & 4 & \dots & 4 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        n^2 & n^2 & \dots & n^2
+      \end{pmatrix} -
+      \begin{pmatrix}
+        2 & 4 & \dots & 2n \\
+        4 & 8 & \dots & 4n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        2n & 4n & \dots & 2n^2
+      \end{pmatrix} +
+      \begin{pmatrix}
+        1 & 4 & \dots & n^2 \\
+        1 & 4 & \dots & n^2 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        1 & 4 & \dots & n^2
+      \end{pmatrix}\right)} \leq \\ & \leq
+      \rank{\begin{pmatrix}
+        1^2 & 1^2 & \dots & 1^2 \\
+        4 & 4 & \dots & 4 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        n^2 & n^2 & \dots & n^2
+      \end{pmatrix}} +
+      \rank{\begin{pmatrix}
+        -2 & -4 & \dots & -2n \\
+        -4 & -8 & \dots & -4n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        -2n & -4n & \dots & -2n^2
+      \end{pmatrix}} + \\ & +
+      \rank{\begin{pmatrix}
+        1 & 4 & \dots & n^2 \\
+        1 & 4 & \dots & n^2 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        1 & 4 & \dots & n^2
+      \end{pmatrix}} = \\ & = 1 + 1 + 1 = 3
+    \end{split}
+  \end{equation*}
+
+  Por tanto, el rango mínimo de $A_n$ con $n \geq 3$ es $3$.
+
+\end{document}
