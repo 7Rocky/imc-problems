@@ -1,0 +1,59 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $A$ una matriz real de tamaño $4 \times 2$ y $B$ otra matriz real de tamaño $2 \times 4$ tales que:
+    $$
+    A B =
+    \begin{pmatrix}
+      1 &  0 & -1 &  0 \\
+      0 &  1 &  0 & -1 \\
+      -1 &  0 &  1 &  0 \\
+      0 & -1 &  0 &  1
+    \end{pmatrix}
+    $$
+
+    Hallar $B A$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Se puede expresar el producto como $
+  A B =
+  \begin{pmatrix}
+    I & -I \\
+    -I &  I
+  \end{pmatrix}
+  $, siendo $I$ la matriz identidad de orden $2$. Y también se puede decir que $A = \begin{pmatrix} A_1 \\ A_2 \end{pmatrix}$ y $B = \begin{pmatrix} B_1 & B_2 \end{pmatrix}$, con $A_1$, $A_2$, $B_1$, $B_2$ matrices $2 \times 2$.
+
+  Entonces,
+  $$
+  A B =
+  \begin{pmatrix} A_1 \\ A_2 \end{pmatrix}
+  \begin{pmatrix} B_1 & B_2 \end{pmatrix} =
+  \begin{pmatrix}
+    I & -I \\
+    -I &  I
+  \end{pmatrix}
+  \iff
+  \left \{
+  \begin{matrix}
+    A_1 B_1 & = &  I \\
+    A_1 B_2 & = & -I \\
+    A_2 B_1 & = & -I \\
+    A_2 B_2 & = &  I \\
+  \end{matrix}
+  \right .
+  $$
+
+  Por otro lado, $B A = \begin{pmatrix} B_1 & B_2 \end{pmatrix} \begin{pmatrix} A_1 \\ A_2 \end{pmatrix} = B_1 A_1 + B_2 A_2$. Como $A_1 B_1 = I$, se puede decir que $B_1 A_1 = I$. Y entonces también $A_2 B_2 = I \iff B_2 A_2 = I$. Visto esto, se concluye que
+  $$
+  B A = B_1 A_1 + B_2 A_2 = 2 I =
+  \begin{pmatrix}
+    2 & 0 \\
+    0 & 2
+  \end{pmatrix}
+  $$
+
+\end{document}
