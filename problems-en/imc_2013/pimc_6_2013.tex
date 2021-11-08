@@ -1,0 +1,33 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $z$ be a complex number with $|z + 1| > 2$. Prove that $|z^3 + 1| > 1$.
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  The expression $|z^3 + 1|$ can be written as:
+  $$
+  |z^3 + 1| = |z + 1| \cdot |z^2 - z + 1| > 1 \iff |z^2 - z + 1| \geq \frac{1}{2}
+  $$
+
+  If $r \, \e^{\i\phi} = z + 1$ is defined, then $r = |z + 1| > 2$. It is needed to calculate the modulus of $z^2 - z + 1$. It can be computed as follows:
+  \begin{equation*}
+    \begin{split}
+      |z^2 - z + 1|^2 & =
+      (z^2 - z + 1) \cdot \overline{(z^2 - z + 1)} = \\ & =
+      (r^2 \, \e^{\i2\phi} - 2r \, \e^{\i\phi} + 1 - r \, \e^{\i\phi} + 1 + 1) \cdot \overline{(r^2 \, \e^{\i2\phi} - 2r \, \e^{\i\phi} + 1 - r \, \e^{\i\phi} + 1 + 1)} = \\ & =
+      (r^2 \, \e^{\i2\phi} - 3r \, \e^{\i\phi} + 3) \cdot (r^2 \, \e^{-\i2\phi} - 3r \, \e^{-\i\phi} + 3) = \\ & =
+      r^4 + 9 r^2 + 9 + 3 r^2 \cdot (\e^{\i 2 \phi} + \e^{-\i 2 \phi}) - (3 r^3 - 9 r) \cdot (\e^{\i \phi} + \e^{-\i \phi}) = \\ & =
+      r^4 + 9 r^2 + 9 + 6 r^2 \cos{2 \phi} - (6 r^3 -18 r) \cdot \cos{\phi} = \\ & =
+      r^4 + 9 r^2 + 9 + 6 r^2 \cdot (2\cos^2{\phi} - 1) - (6 r^3 -18 r) \cdot \cos{\phi} = \\ & =
+      r^4 + 3 r^2 + 9 + 12 r^2 \cos^2{\phi} - (6 r^3 -18 r) \cdot \cos{\phi} = \\ & =
+      12 \left(r \cos{\phi} - \frac{r^2 + 3}{4}\right)^2 + \left(\frac{r^2 - 3}{2}\right)^2
+    \end{split}
+  \end{equation*}
+
+  Since $r > 2$, $|z^2 - z + 1|^2 \geq \left(\displaystyle\frac{r^2 - 3}{2}\right)^2 > \displaystyle\frac{1}{4} \Longrightarrow |z^2 - z + 1| > \displaystyle\frac{1}{2}$. Finally, it is demonstrated that if $|z + 1| > 2$, then $|z^3 + 1| > 1$.
+
+\end{document}
