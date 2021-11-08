@@ -1,0 +1,34 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $f, g: [a, b] \to [0, \infty)$ be continuous and non-decreasing functions such that for each $x \in [a, b]$ we have
+    $$
+    \int_a^x \sqrt{f(t)}\dt \leq \int_a^x \sqrt{g(t)}\dt
+    $$
+
+    and $\displaystyle\int_a^b \sqrt{f(t)}\dt = \displaystyle\int_a^b \sqrt{g(t)}\dt$.
+
+    Prove that
+    $$
+    \int_a^b \sqrt{1 + f(t)}\dt \geq \int_a^b \sqrt{1 + g(t)}\dt
+    $$
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  Let $F(x) = \displaystyle\int_a^x \sqrt{f(t)}\dt$ and $G(x) = \displaystyle\int_a^x \sqrt{g(t)}\dt$ be some functions.
+
+  It is satisfied that $f(x) = (F'(x))^2$ and $g(x) = (G'(x))^2$, so the inequality to prove is equivalent to 
+  $$
+  \int_a^b \sqrt{1 + (F'(x))^2}\dt \geq \int_a^b \sqrt{1 + (G'(x))^2}\dt
+  $$
+
+  Then, it needs to be shown that the length of the graph of $F$ between $a$ and $b$ is greater than the length of the graph of $G$.
+
+  Knowing that $F'(x) = \sqrt{f(x)} \geq 0$ and $F''(x) = \frac{f'(x)}{2\sqrt{f(x)}} \geq 0$ (because $f'(x) \geq 0$, since $f$ is non-decreasing) then $F$ is a convex function. The same applies for $G$.
+
+  Moreover, it is known that $F(a) = G(a) = 0$, also that $F(x) \leq G(x)$ for all $x \in [a, b]$, and also that $F(b) = G(b)$. Since both functions are convex, they intersect in $x = a$ and $x = b$, and $G$ is over $F$, then the length of the graph of $F$ is longer than the length of the graph of $G$. Hence the inequality is proven.
+
+\end{document}

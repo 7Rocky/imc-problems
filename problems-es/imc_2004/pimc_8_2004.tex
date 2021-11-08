@@ -1,0 +1,33 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $f, g: [a, b] \to [0, \infty)$ funciones continuas y no decrecientes tales que para cada $x \in [a, b]$ se tiene que
+    $$
+    \int_a^x \sqrt{f(t)}\dt \leq \int_a^x \sqrt{g(t)}\dt
+    $$
+
+    y que $\displaystyle\int_a^b \sqrt{f(t)}\dt = \displaystyle\int_a^b \sqrt{g(t)}\dt$.
+
+    Prueba que
+    $$
+    \int_a^b \sqrt{1 + f(t)}\dt \geq \int_a^b \sqrt{1 + g(t)}\dt
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sean las funciones $F(x) = \displaystyle\int_a^x \sqrt{f(t)}\dt$ y $G(x) = \displaystyle\int_a^x \sqrt{g(t)}\dt$.
+
+  Se cumple que $f(x) = (F'(x))^2$ y que $g(x) = (G'(x))^2$, por lo que la desigualdad a probar es equivalente a
+  $$
+  \int_a^b \sqrt{1 + (F'(x))^2}\dt \geq \int_a^b \sqrt{1 + (G'(x))^2}\dt
+  $$
+
+  Es decir, hay que demostrar que la longitud de la gráfica de $F$ entre $a$ y $b$ es mayor que la de $G$.
+
+  Sabiendo que $F'(x) = \sqrt{f(x)} \geq 0$ y que $F''(x) = \frac{f'(x)}{2\sqrt{f(x)}} \geq 0$ (ya que $f'(x) \geq 0$, debido a que $f$ no es decreciente) se tiene que $F$ es una función convexa. Lo mismo aplica para $G$.
+
+  Además, se sabe que $F(a) = G(a) = 0$, que $F(x) \leq G(x)$ para todo $x \in [a, b]$ y que $F(b) = G(b)$. Como ambas funciones son convexas, se cortan en $x = a$ y en $x = b$, y la función $G$ está por encima de la función $F$, entonces la longitud de la gráfica de $F$ será mayor que la de $G$, con lo que se demuestra la desigualdad del enunciado.
+\end{document}
