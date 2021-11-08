@@ -1,0 +1,29 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Determine whether there exist an odd positive integer $n$ and $n \times n$ matrices $A$ y $B$ with integer entries, that satisfy the following conditions:
+
+    \begin{enumerate}[1.]
+      \item $\det{(B)} = 1$.
+      \item $A B = B A$.
+      \item $A^4 + 4 A^2 B^2 + 16 B^4 = 2019 I$.
+    \end{enumerate}
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  It is satisfied that
+  $$
+  A^4 \equiv A^4 + 4 A^2 B^2 + 16 B^4 = 2019 I \pmod{4} \Longrightarrow A^4 \equiv 2019 I \pmod{4}
+  $$
+
+  Therefore
+  $$
+  \det{(A^4)} = \left(\det{(A)}\right)^4 \equiv \det{(2019 I)} = 2019^n \pmod{4}
+  $$
+
+  Since $n$ is odd, $2019^n \equiv 3 \pmod{4}$, then $\left(\det{(A)}\right)^4 \equiv  2019^n \equiv 3 \pmod{4}$, but $3$ is not a quadratic residue modulo $4$, so matrices $A$ and $B$ do not exist.
+
+\end{document}
