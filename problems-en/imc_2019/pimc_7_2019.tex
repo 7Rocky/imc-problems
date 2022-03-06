@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $C = \left\{4, 6, 8, 9, 10, \dots\right\}$ be the set of composite positive integers. For each $n \in C$, let $a_n$ be the smallest positive integer $k$ such that $k!$ is divisible by $n$. Determine whether the following series converges:
+    $$
+    \sum_{n \in C} \left(\frac{a_n}{n}\right)^n
+    $$
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  The root criterion states that a series $\displaystyle\sum b_n$ is convergent if and only if $\displaystyle\lim_{n \to \infty} \sqrt[n]{b_n} < 1$. Therefore, if $b_n = \left(\displaystyle\frac{a_n}{n}\right)^n$, the series converges if $\displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{n} < 1$.
+
+  It might me convenient to see some examples:
+  $$
+  n = 4 \Longrightarrow a_4 = 4 \Longrightarrow 4! = 24 \Longrightarrow \frac{a_4}{4} = 1
+  $$
+  $$
+  n = 6 \Longrightarrow a_6 = 3 \Longrightarrow 3! = 6 \Longrightarrow \frac{a_6}{6} = \frac{1}{2}
+  $$
+  $$
+  n = 8 \Longrightarrow a_8 = 4 \Longrightarrow 4! = 24 \Longrightarrow \frac{a_8}{8} = \frac{1}{2}
+  $$
+  $$
+  n = 9 \Longrightarrow a_9 = 6 \Longrightarrow 6! = 720 \Longrightarrow \frac{a_9}{9} = \frac{2}{3}
+  $$
+  $$
+  n = 10 \Longrightarrow a_{10} = 5 \Longrightarrow 5! = 120 \Longrightarrow \frac{a_{10}}{10} = \frac{1}{2}
+  $$
+
+  It seems that $\displaystyle\frac{a_n}{n} \leq \displaystyle\frac{2}{3}$ for $n > 4$. Next, we will show different forms of $n$:
+
+  Let $n = p_1 \cdot p_2$, being $p_i$ prime numbers and $p_1 < p_2$, so $a_n = p_2$ because $p_2! = p_2 \cdot (p_2 - 1) \cdots p_1 \cdot (p_1 - 1) \cdots 1$. Therefore, $n \divides k$, and $\displaystyle\frac{a_n}{n} = \displaystyle\frac{1}{p_1} \leq \displaystyle\frac{1}{2}$, due to $2$ is the least positive prime number.
+
+  If $n = p_1 \cdots p_m$, with $p_1 < \dots < p_m$, then $a_n = p_m$ and $\displaystyle\frac{a_n}{n} = \displaystyle\frac{1}{p_1 \cdot p_2 \cdots p_{m - 1}} \leq \displaystyle\frac{1}{2}$.
+
+  On the other hand, when $n = p^\alpha$, with $\alpha \geq 2$, we have that $a_n = \alpha p$ because $(\alpha p)! = \alpha p \cdots (\alpha - 1)p \cdots p \cdots 1$ is satisfied, and hence $n \divides (\alpha p)!$. Thus, the quotient $\displaystyle\frac{a_n}{n} = \frac{\alpha}{p^{\alpha - 1}} \leq \displaystyle\frac{2}{3}$, ya que $n = 4 = 2^2$ is a special case.
+
+  In general terms, if $n = p_1^{\alpha_1} \cdot p_2^{\alpha_2}$, with $p_1^{\alpha_1} < p_2^{\alpha_2}$, we have that $a_n = \alpha_2 p_2$, and therefore $\displaystyle\frac{a_n}{n} \leq \displaystyle\frac{2}{3}$. This case can be generalized for $m$ in a similar way as before.
+
+  Then, it is proved that $\displaystyle\frac{a_n}{n} \leq \displaystyle\frac{2}{3}$ for $n > 4$. Hence $\displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{n} \leq \displaystyle\lim_{n \to \infty} \displaystyle\frac{2}{3} = \displaystyle\frac{2}{3} < 1$, so that the series of the problem statement converges.
+
+\end{document}

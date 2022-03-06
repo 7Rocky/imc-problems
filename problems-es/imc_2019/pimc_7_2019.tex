@@ -1,0 +1,45 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sea $C = \left\{4, 6, 8, 9, 10, \dots\right\}$ el conjunto de los números compuestos enteros positivos. Para cada $n \in C$, sea $a_n$ el menor número $k$ tal que $k!$ es divisible entre $n$. Determina si la siguiente serie converge:
+    $$
+    \sum_{n \in C} \left(\frac{a_n}{n}\right)^n
+    $$
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Por el criterio de la raíz, una serie $\displaystyle\sum b_n$ es convergente si y solo si $\displaystyle\lim_{n \to \infty} \sqrt[n]{b_n} < 1$. Entonces, si $b_n = \left(\displaystyle\frac{a_n}{n}\right)^n$, la serie converge si $\displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{n} < 1$.
+
+  Conviene ver algunos casos particulares:
+  $$
+  n = 4 \Longrightarrow a_4 = 4 \Longrightarrow 4! = 24 \Longrightarrow \frac{a_4}{4} = 1
+  $$
+  $$
+  n = 6 \Longrightarrow a_6 = 3 \Longrightarrow 3! = 6 \Longrightarrow \frac{a_6}{6} = \frac{1}{2}
+  $$
+  $$
+  n = 8 \Longrightarrow a_8 = 4 \Longrightarrow 4! = 24 \Longrightarrow \frac{a_8}{8} = \frac{1}{2}
+  $$
+  $$
+  n = 9 \Longrightarrow a_9 = 6 \Longrightarrow 6! = 720 \Longrightarrow \frac{a_9}{9} = \frac{2}{3}
+  $$
+  $$
+  n = 10 \Longrightarrow a_{10} = 5 \Longrightarrow 5! = 120 \Longrightarrow \frac{a_{10}}{10} = \frac{1}{2}
+  $$
+
+  Parece que $\displaystyle\frac{a_n}{n} \leq \displaystyle\frac{2}{3}$ para $n > 4$. A continuación, se muestran las posibles formas de $n$:
+
+  Sea $n = p_1 \cdot p_2$, con $p_i$ números primos y $p_1 < p_2$, entonces, $a_n = p_2$, ya que $p_2! = p_2 \cdot (p_2 - 1) \cdots p_1 \cdot (p_1 - 1) \cdots 1$. Por tanto, $n \divides k$, y $\displaystyle\frac{a_n}{n} = \displaystyle\frac{1}{p_1} \leq \displaystyle\frac{1}{2}$, ya que $2$ es el menor número primo positivo.
+
+  Si $n = p_1 \cdots p_m$, con $p_1 < \dots < p_m$, entonces $a_n = p_m$ y $\displaystyle\frac{a_n}{n} = \displaystyle\frac{1}{p_1 \cdot p_2 \cdots p_{m - 1}} \leq \displaystyle\frac{1}{2}$.
+
+  Por otro lado, cuando $n = p^\alpha$, con $\alpha \geq 2$, se tiene que $a_n = \alpha p$, porque se cumple que $(\alpha p)! = \alpha p \cdots (\alpha - 1)p \cdots p \cdots 1$, y por tanto, $n \divides (\alpha p)!$. Y entonces, el cociente $\displaystyle\frac{a_n}{n} = \frac{\alpha}{p^{\alpha - 1}} \leq \displaystyle\frac{2}{3}$, ya que $n = 4 = 2^2$ es un caso aparte.
+
+  Y generalizando, si $n = p_1^{\alpha_1} \cdot p_2^{\alpha_2}$, con $p_1^{\alpha_1} < p_2^{\alpha_2}$, se sigue que $a_n = \alpha_2 p_2$, y por tanto $\displaystyle\frac{a_n}{n} \leq \displaystyle\frac{2}{3}$. Y este caso se puede generalizar para $m$, de manera similar al caso anterior.
+
+  Entonces, queda probado que $\displaystyle\frac{a_n}{n} \leq \displaystyle\frac{2}{3}$ para $n > 4$. Y entonces $\displaystyle\lim_{n \to \infty} \displaystyle\frac{a_n}{n} \leq \displaystyle\lim_{n \to \infty} \displaystyle\frac{2}{3} = \displaystyle\frac{2}{3} < 1$, y por tanto, la serie del enunciado es convergente.
+
+\end{document}
