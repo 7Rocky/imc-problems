@@ -1,0 +1,60 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+\begin{shaded}
+Se define la sucesión $a_0$, $a_1$, ... inductivamente como $a_0 = 1$, $a_1 = \frac{1}{2}$ y
+
+$$
+a_{n + 1} = \frac{n \, a_n^2}{1 + (n + 1) \, a_n} \quad \text{para } n \geq 1
+$$
+
+Demostrar que la serie $\displaystyle\sum_{k = 0}^\infty \frac{a_{k + 1}}{a_k}$ es convergente y determinar su valor.
+\end{shaded}
+
+\textbf{Solución:}
+\\
+
+Manipulando un poco la expresión de la sucesión, se llega a lo siguiente:
+
+\begin{equation*}
+\begin{split}
+a_{n + 1} = \frac{n \, a_n^2}{1 + (n + 1) \, a_n} & \iff
+a_{n + 1} \cdot (1 + (n + 1) \, a_n) = n \, a_n^2 \iff \\ & \iff
+a_{n + 1} + (n + 1) \, a_{n + 1} \, a_n = n \, a_n^2 \iff \\ & \iff
+\frac{a_{n + 1}}{a_n} + (n + 1) \, a_{n + 1} = n \, a_n \iff \\ & \iff
+\frac{a_{n + 1}}{a_n} = n \, a_n - (n + 1) \, a_{n + 1}
+\end{split}
+\end{equation*}
+
+Como esta expresión es solo válida para $n \geq 1$, hay que expresar el sumatorio como:
+
+\begin{equation*}
+\begin{split}
+\sum_{k = 0}^m \frac{a_{k + 1}}{a_k} & =
+\frac{a_1}{a_0} + \sum_{k = 1}^m \frac{a_{k + 1}}{a_k} =  \\ & =
+\frac{a_1}{a_0} + \sum_{k = 1}^m \big(k \, a_k - (k + 1) \, a_{k + 1}\big) =  \\ & =
+1 - \big((m + 1) \, a_{m + 1}\big)
+\end{split}
+\end{equation*}
+
+De esta expresión se puede ver que $0 < \displaystyle\sum_{k = 0}^m \frac{a_{k + 1}}{a_k} < 1$, es decir, que está acotada. Y como todos los términos de la sucesión son positivos, se puede afirmar que la serie es convergente. La serie infinita se puede calcular como:
+\\
+
+$$
+\sum_{k = 0}^\infty \frac{a_{k + 1}}{a_k} = 1 - \lim_{k \to \infty} k \, a_k
+$$
+
+Y como la serie es convergente, tiene que ocurrir que $\displaystyle\lim_{k \to \infty} \frac{a_{k + 1}}{a_k} = 0$. Utilizando la expresión que se da en el enunciado, se puede ver que:
+
+$$
+\frac{a_{k + 1}}{a_k} = \frac{k \, a_k}{1 + (k + 1) \, a_k}
+$$
+
+Donde el denominador $1 + (k + 1) \, a_k > 1$ para todo $k$. De esto, se deduce que si $\displaystyle\frac{a_{k + 1}}{a_k} \to 0$, entonces $k \, a_k \to 0$ también, cuando $k \to \infty$. Y, finalmente:
+
+$$
+\sum_{k = 0}^\infty \frac{a_{k + 1}}{a_k} = 1 - \lim_{k \to \infty} k \, a_k = 1 - 0 = 1
+$$
+
+\end{document}

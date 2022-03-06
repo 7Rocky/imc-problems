@@ -1,0 +1,15 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Sean $A$ y $B$ dos matrices reales simétricas con todos sus autovalores estrictamente mayores que $1$. Sea $\lambda$ un autovalor de $AB$. Probar que $|\lambda| > 1$.
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Si se asume que las matrices $A$ y $B$ son de dimensiones $1 \times 1$ y suponemos que $|\lambda| \leq 1$, entonces $|\det{(AB)}| \leq 1 \iff |\det{(A)}| \cdot |\det{(B)}| \leq 1$. Esto implica que si $|\det{(A)}| > 1$, luego $|\det{(B)}| < 1$, lo cual contradice las condiciones del enunciado. Por reducción al absurdo, tiene que ocurrir que $|\lambda| > 1$.
+
+  Otra manera de verlo es que las transformaciones que producen las matrices $A$ y $B$ siempre se traducen en un aumento de las coordenadas de un vector no nulo. Por este motivo, la matriz $AB$ también incrementa la longitud de cualquier vector no nulo, por lo que $|\lambda| > 1$.
+
+\end{document}

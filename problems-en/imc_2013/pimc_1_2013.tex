@@ -1,0 +1,15 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $A$ and $B$ be real symmetric matrices with all eigenvalues strictly greater than $1$. Let $\lambda$ be a real eigenvalue of matrix $AB$. Prove that $|\lambda| > 1$.
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  If we assume that matrices $A$ and $B$ have dimensions $1 \times 1$ and we suppose that $|\lambda| \leq 1$, then $|\det{(AB)}| \leq 1 \iff |\det{(A)}| \cdot |\det{(B)}| \leq 1$. This implies that if $|\det{(A)}| > 1$, then $|\det{(B)}| < 1$, which contradicts the conditions of the problem statement. Therefore, $|\lambda| > 1$ must be satisfied.
+
+  Another way of understanding it is that the transformations that matrices $A$ and $B$ produce always translate into an increase of the coordinates of a non-zero vector. As a result, matrix $AB$ also increments the length o any non-zero vector, so $|\lambda| > 1$ follows.
+
+\end{document}
