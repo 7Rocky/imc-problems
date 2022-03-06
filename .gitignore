@@ -1,6 +1,4 @@
-*.aux
-*.log
-*.out
-*.fdb_latexmk
-*.fls
-*.toc
+/*
+!LICENSE
+!README.md
+!problems-e[ns]/
