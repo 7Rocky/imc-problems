@@ -1,0 +1,277 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Un número de cuatro cifras $YEAR$ es denominado \textit{muy bueno} si el siguiente sistema de ecuaciones en las variables $x$, $y$, $z$ y $w$ tiene al menos dos soluciones:
+    $$
+    \left \{
+      \begin{matrix}
+        Y x + E y + A z + R w & = & Y \\
+        R x + Y y + E z + A w & = & E \\
+        A x + R y + Y z + E w & = & A \\
+        E x + A y + R z + Y w & = & R
+      \end{matrix}
+    \right .
+    $$
+
+    Encuentra todos los números $YEAR$ \textit{muy buenos} del siglo XXI (es decir, desde $2001$ hasta $2100$, ambos inclusive).
+  \end{shaded}
+
+  \textbf{Solución:}
+
+  Sean las siguientes matrices:
+  $$
+  M = \left(
+    \begin{matrix}
+      Y & E & A & R \\
+      R & Y & E & A \\
+      A & R & Y & E \\
+      E & A & R & Y
+    \end{matrix}
+  \right) \quad\quad X =
+  \left(
+    \begin{matrix}
+      x \\
+      y \\
+      z \\
+      w
+    \end{matrix}
+  \right) \quad\quad N =
+  \left(
+    \begin{matrix}
+      Y \\
+      E \\
+      A \\
+      R
+    \end{matrix}
+  \right)
+  $$
+
+  El sistema de ecuaciones lineales $M X = N$ tiene una única solución si y solo si $\det{(M)} \ne 0$. El sistema puede tener más de una solución (de hecho, infinitas) si $\det{(M)} = 0$ y además $\rank{(M)} = \rank{(M | N)}$. También podría ocurrir que el sistema no tuviera solución, cuando $\rank{(M)} < \rank{(M | N)}$. Esto se debe al teorema de Rouché-Frobenius.
+
+  Los casos que interesan son los que hacen que $\det{(M)} = 0$ y $\rank{(M)} = \rank{(M | N)}$. Se puede apreciar que los años del siglo XXI cumplen que $Y = 2$ en todos los casos, y que $E = 0$, salvo en el año $2100$. Este caso se puede comprobar de manera particular:
+  $$
+  \det{(M)} = \left|
+    \begin{matrix}
+      2 & 1 & 0 & 0 \\
+      0 & 2 & 1 & 0 \\
+      0 & 0 & 2 & 1 \\
+      1 & 0 & 0 & 2
+    \end{matrix}
+  \right| = 2 \cdot \left |
+    \begin{matrix}
+      2 & 1 & 0 \\
+      0 & 2 & 1 \\
+      0 & 0 & 2
+    \end{matrix}
+  \right| - \left|
+    \begin{matrix}
+      1 & 0 & 0 \\
+      2 & 1 & 0 \\
+      0 & 2 & 1 \\
+    \end{matrix}
+  \right| = 15 \ne 0
+  $$
+
+  Visto esto, se descarta el año $2100$, entonces se puede asegurar que $Y = 2$ y $E = 0$. Ahora se calcula el determinante de la matriz de coeficientes en función de $A$ y $R$:
+
+  \begin{equation*}
+    \begin{split}
+      \det{(M)} & = \left|
+        \begin{matrix}
+          2 & 0 & A & R \\
+          R & 2 & 0 & A \\
+          A & R & 2 & 0 \\
+          0 & A & R & 2
+        \end{matrix}
+      \right| = (2 + A + R) \left|
+        \begin{matrix}
+          1 & 1 & 1 & 1 \\
+          R & 2 & 0 & A \\
+          A & R & 2 & 0 \\
+          0 & A & R & 2
+        \end{matrix}
+      \right| \\ & = (2 + A + R) \left|
+        \begin{matrix}
+          1 &   0   &   0   &   0   \\
+          R & 2 - R &  - R  & A - R \\
+          A & R - A & 2 - A &  - A  \\
+          0 &   A   &   R   &   2
+        \end{matrix}
+      \right| \\ & = (2 + A + R) \left|
+        \begin{matrix}
+          2 - R &  - R  & A - R \\
+          R - A & 2 - A &  - A  \\
+            A   &   R   &   2
+        \end{matrix}
+      \right| \\ & = (2 + A + R) \left|
+        \begin{matrix}
+          2 + A - R &   0   & 2 + A - R \\
+            R - A   & 2 - A &    - A    \\
+              A     &   R   &     2
+        \end{matrix}
+      \right| \\ & = (2 + A + R)(2 + A - R) \left|
+        \begin{matrix}
+            1   &   0   &  1  \\
+          R - A & 2 - A & - A \\
+            A   &   R   &  2
+        \end{matrix}
+      \right| \\ & = (2 + A + R)(2 + A - R) \left|
+        \begin{matrix}
+            1   &   0   &   0  \\
+          R - A & 2 - A &  - R \\
+            A   &   R   & 2 - A
+        \end{matrix}
+      \right| \\ & = (2 + A + R)(2 + A - R) \left|
+        \begin{matrix}
+          2 - A &  - R \\
+            R   & 2 - A
+        \end{matrix}
+      \right| \\ & = (2 + A + R)(2 + A - R)\left((2 - A)^2 + R^2\right)
+    \end{split}
+  \end{equation*}
+
+  Se puede ver que $\det{(M)} = 0$ si alguno de los tres factores de la expresión es nula. El primer factor $(2 + A + R) \geq 2$, ya que $0 \leq A, R \leq 9$. El segundo factor se anula cuando $A = R - 2$, por lo que $R \geq 2$. Estos casos son los años $2002, 2013, \dots, 2079$. Y el tercer factor se anula cuando $A = 2$ y $R = 0$, es decir, solo el año $2020$.
+
+  Vistos estos valores que anulan el determinante de la matriz de coeficientes, ahora hay que verificar que $\rank{(M)} = \rank{(M | N)}$. El tercer caso, al ser un único caso puede ser comprobado de manera particular:
+  $$
+  (M | N) \sim \left(
+    \begin{matrix}
+      2 & 0 & 2 & 0 & \\
+      0 & 2 & 0 & 2 & \\
+      2 & 0 & 2 & 0 & \\
+      0 & 2 & 0 & 2 &
+    \end{matrix}
+    \left|
+      \begin{matrix}
+        & 2 \\
+        & 0 \\
+        & 2 \\
+        & 0
+      \end{matrix}
+    \right .
+  \right)
+  \sim
+  \left(
+    \begin{matrix}
+      1 & 0 & 1 & 0 & \\
+      0 & 1 & 0 & 1 & \\
+      0 & 0 & 0 & 0 & \\
+      0 & 0 & 0 & 0 &
+    \end{matrix}
+    \left|
+      \begin{matrix}
+        & 1 \\
+        & 0 \\
+        & 0 \\
+        & 0
+      \end{matrix}
+    \right .
+  \right)
+  $$
+
+  Como $\rank{(M)} = \rank{(M | N)} = 2$, el año $2020$ es un año \textit{muy bueno}.
+
+  Y para el segundo caso, se han de calcular los rangos de las matrices de coeficientes y ampliada en función de $R$:
+  \begin{equation*}
+    \begin{split}
+      (M | N) & \sim \left(
+        \begin{matrix}
+            2   &   0   & R - 2 &   R   & \\
+            R   &   2   &   0   & R - 2 & \\
+          R - 2 &   R   &   2   &   0   & \\
+            0   & R - 2 &   R   &   2   &
+        \end{matrix}
+        \left|
+          \begin{matrix}
+            &   2   \\
+            &   0   \\
+            & R - 2 \\
+            &   R
+          \end{matrix}
+        \right .
+      \right) \\ & \sim \left(
+        \begin{matrix}
+            R   &   R   & R &   R   & \\
+            R   &   2   & 0 & R - 2 & \\
+          R - 2 &   R   & 2 &   0   & \\
+            0   & R - 2 & R &   2   &
+        \end{matrix}
+        \left|
+          \begin{matrix}
+            &   R   \\
+            &   0   \\
+            & R - 2 \\
+            &   R
+          \end{matrix}
+        \right .
+      \right) \\ & \sim \left(
+        \begin{matrix}
+          1 &   1   &   1   &   1   & \\
+          0 & 2 - R &  - R  &  - 2  & \\
+          0 &   2   & 4 - R & 2 - R & \\
+          0 & R - 2 &   R   &   2   &
+        \end{matrix}
+        \left|
+          \begin{matrix}
+            &  1  \\
+            & - R \\
+            &  0  \\
+            &  R
+          \end{matrix}
+        \right .
+      \right) \\ & \sim \left(
+        \begin{matrix}
+          1 &   1   &  1  &   1   & \\
+          0 & 2 - R & - R &  - 2  & \\
+          0 &   R   &  4  & 4 - R & \\
+          0 &   0   &  0  &   0   &
+        \end{matrix}
+        \left|
+          \begin{matrix}
+            &  1  \\
+            & - R \\
+            &  R  \\
+            &  0
+          \end{matrix}
+        \right .
+      \right) \\ & \sim \left(
+        \begin{matrix}
+          1 &   1   &  1  &   1   & \\
+          0 & 1  & 2 - \frac{R}{2} &  1 - \frac{R}{2}  & \\
+          0 &   R   &  4  & 4 - R & \\
+          0 &   0   &  0  &   0   &
+        \end{matrix}
+        \left|
+          \begin{matrix}
+            & 1 \\
+            & 0 \\
+            & R \\
+            & 0
+          \end{matrix}
+        \right .
+      \right) \\ & \sim \left(
+        \begin{matrix}
+          1 &   1   &  1  &   1   & \\
+          0 & 1  & 2 - \frac{R}{2} &  1 - \frac{R}{2}  & \\
+          0 &   0   &  4 - 2R + \frac{R^2}{2}  & 4 - 2R + \frac{R^2}{2} & \\
+          0 &   0   &  0  &   0   &
+        \end{matrix}
+        \left|
+          \begin{matrix}
+            & 1 \\
+            & 0 \\
+            & R \\
+            & 0
+          \end{matrix}
+        \right .
+      \right)
+    \end{split}
+  \end{equation*}
+
+  Como $4 - 2R + \displaystyle\frac{R^2}{2} \ne 0$ para valores de $R$ enteros entre $2$ y $9$, se tiene que $\rank{(M)} = \rank{(M|N)} = 3$.
+
+  En conclusión, los años \textit{muy buenos} del siglo XXI son: $2002$, $2013$, $2020$, $2024$, $2035$, $2046$, $2057$, $2068$ y $2079$.
+
+\end{document}
