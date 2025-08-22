@@ -1,0 +1,38 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Find all twice continuously differentiable functions $f: \R \to (0, + \infty)$ satisfying
+    $$
+    f''(x) f(x) \geq 2 (f'(x))^2
+    $$
+
+    for all $x \in \R$.
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  It can be seen that the inequality in the statement is part of a derivative. For example, by differentiating the following function:
+  $$
+  g = \frac{1}{f} \Longrightarrow g'' = \left(\frac{1}{f}\right)'' = \left(\frac{-f'}{f^2}\right)' = \frac{-f'' f^2 + 2 f (f')^2}{f^4} = \frac{2 (f')^2 -f'' f}{f^3}
+  $$
+
+  Knowing that $ 2 (f'(x))^2 - f''(x) f(x) \leq 0$, we obtain
+  $$
+  \frac{2 (f')^2 -f'' f}{f^3} \leq 0 \Longrightarrow g'' \leq 0
+  $$
+
+  Therefore, the function $g$ is concave for all $x \in \R$. Then, for any set of values $a < b$, $u < a$ and $b < v$, it holds that
+  $$
+  \frac{g(a) - g(u)}{a - u} \geq \frac{g(b) - g(a)}{b - a} \geq \frac{g(v) - g(b)}{v - b}
+  $$
+
+  Taking limits in the previous expression as $u \to - \infty$ and $v \to + \infty$, it follows that
+  $$
+  0 \geq \frac{g(b) - g(a)}{b - a} \geq 0
+  $$
+
+  Since $g = \displaystyle\frac{1}{f}$ is a strictly positive function for all $x \in \R$, the only possibility is that $g(a) = g(b)$ for any $a, b \in \R$. Then $g$ is constant, and therefore $f$ is also constant. From this it follows that the only functions that satisfy the inequality in the statement are the positive constant functions, of the form $f(x) = C$, with $C > 0$.
+
+\end{document}
