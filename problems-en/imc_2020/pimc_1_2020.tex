@@ -1,0 +1,95 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+
+  \begin{shaded}
+    Let $n$ be a positive integer. Compute the number of words $w$ (finite sequences of letters) that satisfy the following three properties:
+
+    \begin{enumerate}
+      \item $w$ consists of $n$ letters, all of them are from the alphabet $\{\mathtt{a}, \mathtt{b}, \mathtt{c}, \mathtt{d}\}$.
+      \item $w$ contains an even number of letters $\mathtt{a}$.
+      \item $w$ contains an even number of letters $\mathtt{b}$.
+    \end{enumerate}
+
+    (For example, for $n = 2$, there are 6 such words: $\mathtt{aa}$, $\mathtt{bb}$, $\mathtt{cc}$, $\mathtt{dd}$, $\mathtt{cd}$ and $\mathtt{dc}$)
+  \end{shaded}
+
+  \textbf{Solution:}
+
+  First, it is easy to see that the number of words that can be formed with the alphabet $\{\mathtt{a}, \mathtt{b}, \mathtt{c}, \mathtt{d}\}$ as a function of $n$ is $4^n$. The following sets are defined:
+
+  \begin{itemize}
+    \item $A_n$: Set of words with an even number of letters $\mathtt{a}$ and $\mathtt{b}$.
+    \item $B_n$: Set of words with an odd number of letters $\mathtt{a}$ and $\mathtt{b}$.
+    \item $C_n$: Set of words with an even number of letters $\mathtt{a}$ and an odd number of letters $\mathtt{b}$.
+    \item $D_n$: Set of words with an odd number of letters $\mathtt{a}$ and an even number of letters $\mathtt{b}$.
+  \end{itemize}
+
+  Since these sets are disjoint, obviously, we know that
+  $$
+  |A_n| + |B_n| + |C_n| + |D_n| = 4^n
+  $$
+
+  On the other hand, starting from the set $A_n$, if we remove the last letter of each word and it is $\mathtt{c}$ or $\mathtt{d}$, the resulting words will be in the set $A_{n - 1}$. If the last letter is an $\mathtt{a}$, the resulting words will be in the set $D_{n - 1}$. And if it is a $\mathtt{b}$, the words will belong to $C_{n - 1}$. Therefore:
+  $$
+  |A_n| = 2 |A_{n - 1}| + |C_{n - 1}| + |D_{n - 1}|
+  $$
+
+  It can be seen that there is a bijection between the sets $C_n$ and $D_n$, which consists of changing every letter $\mathtt{a}$ to $\mathtt{b}$ and vice versa, so that $|C_n| = |D_n|$. Then
+  $$
+  |A_n| = 2 |A_{n - 1}| + |C_{n - 1}| + |D_{n - 1}| = 2 |A_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  Continuing with the same strategy, if we remove the last letter from each word in the set $B_n$, if it is an $\mathtt{a}$, the resulting word would be in the set $C_{n - 1}$; if it is a $\mathtt{b}$, the word would be in the set $D_{n - 1}$; and if it is a $\mathtt{c}$ or a $\mathtt{d}$, the word would be in the set $B_{n - 1}$, so that
+  $$
+  |B_n| = 2 |B_{n - 1}| + |C_{n - 1}| + |D_{n - 1}| = 2 |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  If we remove the last letter from the words in the set $C_n$, if it is a letter $\mathtt{a}$, the resulting word will be in the set $B_{n - 1}$; if it is a $\mathtt{b}$, the word will be in $A_{n - 1}$; and if it is a $\mathtt{c}$ or a $\mathtt{d}$, the word will be in $C_{n - 1}$, so that
+  $$
+  |C_n| = |A_{n - 1}| + |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  Summarizing, we have the following relations:
+  $$
+  |A_n| + |B_n| + 2 |C_n| = 4^n
+  $$
+  $$
+  |A_n| = 2 |A_{n - 1}| + 2 |C_{n - 1}|
+  $$
+  $$
+  |B_n| = 2 |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+  $$
+  |C_n| = |A_{n - 1}| + |B_{n - 1}| + 2 |C_{n - 1}|
+  $$
+
+  It is easy to see that $|C_n| = 4^{n - 1}$, so the relations reduce to
+  $$
+  |A_n| + |B_n| + 2 \cdot 4^{n - 1} = 4^n \Longrightarrow |A_n| + |B_n| = 2 \cdot 4^{n - 1}
+  $$
+  $$
+  |A_n| = 2 |A_{n - 1}| + 2 \cdot 4^{n - 2}
+  $$
+  $$
+  |B_n| = 2 |B_{n - 1}| + 2 \cdot 4^{n - 2}
+  $$
+
+  Subtracting the last two relations, we have that
+  $$
+  |A_n| - |B_n| = 2 \left(|A_{n - 1}| - |B_{n - 1}|\right)
+  $$
+
+  We know that $A_{1} = \{\mathtt{c}, \mathtt{d}\}$ and that $B_1 = \varnothing$, so $|A_1| - |B_1| = 2$, and then, $|A_2| - |B_2| = 4$, and inductively
+  $$
+  |A_n| - |B_n| = 2^n
+  $$
+
+  Combining this relation with $|A_n| + |B_n| = 2 \cdot 4^{n - 1}$, we have that
+  $$
+  |A_n| = 2^{n - 1} + 4^{n - 1}
+  $$
+
+  This is the number of words $w$ of $n$ letters with the required properties.
+
+\end{document}
